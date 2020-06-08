@@ -1,13 +1,30 @@
-{% include header.html %}
+<!DOCTYPE html>
+<html lang="en">
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    {% include post-content.html %}
-                </div>
-            </div>
-        </div>
-    </main>
+{% include head.html %}
 
-{% include footer.html %}
+<body>
+
+  {% if site.google-analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+
+  {% include header.html %}
+
+  <!-- begin content -->
+  <main class="content" aria-label="Content">
+    {{ content }}
+  </main>
+  <!-- end content -->
+
+  {% include footer.html %}
+
+  <!-- begin js -->
+  <script src="{{ site.baseurl }}/assets/js/vendors/jquery-3.3.1.min.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/vendors/aos.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/vendors/jquery.fitvids.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/common.js"></script>
+  <!-- end js -->
+</body>
+
+</html>

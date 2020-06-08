@@ -1,98 +1,117 @@
-## Phantom for Jekyll
+# Derrick — Minimal Theme for Jekyll.
 
-A minimalist, responsive portfolio theme for [Jekyll](http://jekyllrb.com/) with Bootstrap.
+Derrick is a clean minimal and fast theme for a personal blog.
 
-![preview](preview.jpg)
+* * *
 
-[See it in action](http://jamigibbs.github.io/phantom/).
+Table of Contents
+-----------------
+*   [Features](#features)
+*   [Demo](#demo)
+*   [Deployment](#deployment)
+*   [Posts](#posts)
+*   [Disqus Comments](#DisqusComments)
+*   [Google Analytics](#GoogleAnalytics)
+*   [Update favicon](#UpdateFavicon)
+*   [Support](#Support)
 
-## Fancy using it for your own site?
+* * *
 
-Here are some steps to get you started:
+### Features
 
-1. Clone this repo and cd into the directory:
+* 100% responsive and clean theme
 
-  ```bash
-  git clone https://github.com/jamigibbs/phantom.git your-dir-name && cd your-dir-name
-  ```
+* Optimized for mobile devices
 
-2. Run:
+* Minimal design
 
-  ```bash
-  gem install bundler
-  bundle install
-  bundle exec jekyll serve
-  ```
+* Valid HTML5 code
 
-  You may need to append your commands with `sudo` if you're getting a permissions error.
+* Post sharing
 
-  _Don't have Jekyll yet? [Get `er installed then!](http://jekyllrb.com/docs/installation/)_
+* Supports Disqus Comments
 
-3. Visit in your browser at:
+* Supports Google Analytics
 
-  `http://127.0.0.1:4000`
+* Google Fonts
 
-## Launching with Github Pages :rocket:
 
-Jekyll + Github pages is a marriage made in heaven. You can [use your own custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/) or use the default Github url (ie. http://username.github.io/repository) and not bother messing around with DNS settings.
+* * *
 
-## Theme Features
+### Demo
 
-### Navigation
+Check the theme in action [Demo](https://derrick-jekyll.netlify.com)
 
-Navigation can be customized in `_config.yml` under the `nav_item` key. Default settings:
+![Main page preview](https://github.com/artemsheludko/derrick/blob/master/assets/img/derrick-preview.jpg?raw=true)
 
-```yaml
-nav_item:
-    - { url: '/', text: 'Home' }
-    - { url: '/about', text: 'About' }
-```
+* * *
 
-Set the `nav_enable` variable to false in `_config.yml` to disable navigation.
+### Deployment
 
-### Contact Form
+To run the theme locally, navigate to the theme directory and run `bundle install` to install the dependencies, then run `jekyll serve` or `bundle exec jekyll serve` to start the Jekyll server.
 
-You can display a contact form within the modal window template. This template is already setup to use the [Formspree](https://formspree.io) email system. You'll just want to add your email address to the form in `/_includes/contact-modal.html`.
+I would recommend checking the [Deployment Methods](https://jekyllrb.com/docs/deployment-methods/) page on Jekyll website.
 
-Place the modal window template in any place you'd like the user to click for the contact form.
-The template will display a link to click for the contact form modal window:
+* * *
 
-```liquid
-{% include contact.html %}
-{% include contact-modal.html %}
-```
+### Posts
 
-### Animation Effects
+To create a new post, you can create a new markdown file inside the \_posts directory by following the [recommended file structure](https://jekyllrb.com/docs/posts/#creating-post-files).
 
-Animations with CSS classes are baked into the theme. To animate a section or element, simply add the animation classes:
+      ---
+      layout: post
+      title: "Welcome to Jekyll!"
+      date: 2018-05-29 18:05:55 +0300
+      image: '/assets/img/03.jpg'
+      tags: Life
+      ---
 
-```html
-<div id="about-me" class="wow fadeIn">
-  I'm the coolest!
-</div>
-```
 
-For a complete list of animations, see the [animation list](http://daneden.github.io/animate.css/).
+You can set the tags and the post image.
 
-### Pagination
+Add post images to **/assets/img/** directory.
 
-By default, pagination on the home page will activate after 10 posts. You can change this within `_config.yml`. You can add the pagination to other layouts with:
+For tags, try to not add space between two words, for example, `Ruby on Rails`, could be something like (`ruby-on-rails`, `Ruby_on_Rails`, or `Ruby-on-Rails`).
 
-```liquid
-  {% for post in paginator.posts %}
-    {% include post-content.html %}
-  {% endfor %}
+* * *
 
-  {% include pagination.html %}
-```
+### Disqus Comments
 
-Read more about the [pagination plugin](http://jekyllrb.com/docs/pagination/).
+Derrick Theme comes with Disqus comments enabled.
 
-## Credit
+Open `_config.yml` file, and change the `mr-brown` value on line 28 with your [Disqus account shortname](https://help.disqus.com/customer/portal/articles/466208).
 
-* Bootstrap, http://getbootstrap.com/, (C) 2011 - 2016 Twitter, Inc., [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
+      Comment Section (Disqus)
+      disqus-identifier: mr-brown # Add your shortname for Disqus Comment. For example mr-brown
 
-* Wow, https://github.com/matthieua/WOW, (C) 2014 - 2016 Matthieu Aussaguel
-, [GPL](https://github.com/matthieua/WOW#open-source-license)
 
-* Animate.css, https://github.com/daneden/animate.css, (C) 2016 Daniel Eden, [MIT](https://github.com/daneden/animate.css/blob/master/LICENSE)
+That’s all you need to setup Disqus from the theme side. If you get any issue regarding that comments are unable to load. First, make sure you have [registered your website with Disqus (Step 1)](https://help.disqus.com/customer/portal/articles/466182-publisher-quick-start-guide).
+
+And also check [Disqus troubleshooting guide](https://help.disqus.com/customer/portal/articles/472007-i-m-receiving-the-message-%22we-were-unable-to-load-disqus-%22) if you still have issues.
+
+* * *
+
+### Google Analytics
+
+To integrate Google Analytics, open `_config.yml`, and add your Google Analytics identifier.
+
+    # Google Analytics
+    google-analytics: # Add your identifier. For example UA-99631805-1
+
+
+* * *
+
+### Update favicon
+
+You can find the current favicon (favicon.ico) inside the theme root directory, just replace it with your new favicon.
+
+* * *
+### License
+
+Mit License
+
+* * *
+
+### Support
+
+<p>If you’d like to support me so I can continue to provide free content and themes you can become my sponsor on <a href="https://www.patreon.com/artemsheludko" target="_blank">Patreon</a>. <b>Thank you for your support ❤️</b><p>
