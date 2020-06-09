@@ -1,44 +1,45 @@
 ---
 layout: post
-title:  Believe in the workflow
+title:  Queue implementation in Swift
 date:   2019-07-24 15:01:35 +0300
-image:  '/assets/img/02.jpg'
-tags:   [switzerland, heels, chair, blog]
----
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution.
-
+image:  '/assets/img/queue/queue1.jpg'
+tags:   [Queue, Data Structure, Swift]
 ---
 
-## Quickly deploy strategic
+Whenever we go for shopping or for some dinning experience, we usually have to stand in queue and wait for out turn. Amid the COVID-19 Pandemics, we can now see the queue being normal around us.
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. **Nanotechnology immersion along the information** highway will close the loop on focusing solely on the bottom line. Podcasting operational change management inside of workflows to establish a framework.
+As in every queue, the one who goes in first, comes out first, it is similar with Queue Data Structure. We call it First in First out (FIFO), and we are going to implement it using array in Swift. 
 
-Globally incubate standards compliant channels:
+![]({{site.baseurl}}/assets/img/queue/queue2.jpg)
 
-> Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
+We are going to create a basic class in Swift Playground. It is going to be a generic queue, it will facilitate to create queue of any data types. We are writing an array of the generic type “T", which will hold our data. We have to initialize the queue as well.
 
-> Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+Next thing, is declaring a variable to check, if the array is empty. Since, we cannot dequeue an empty array. A queue also needs a peek method which returns the item at the beginning of the queue without removing it.
 
-Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+![]({{site.baseurl}}/assets/img/queue/queue3.jpg)
 
-## Dramatically web services.
+## Enqueue
+Now, we need to add values to our queue, it needs an enqueue method, which will add the object to the end of the Queue. This method will mutate the array, we have to explicitly specify it while declaring the enqueue method. 
 
-Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.
+## Dequeue
+Similarly, we need to dequeue the queue, we will add a dequeue method that returns the first item in the queue. The return type is nullable to handle the queue being empty.
 
-* **Functional solutions** - Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+![]({{site.baseurl}}/assets/img/queue/queue4.jpg)
 
-* **Objectively innovate** - Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.
+Voila! our queue is ready, we are going to test it with Integer data.
 
-* **Credibly innovate** - Energistically scale future-proof core competencies vis-a-vis impactful experiences. Dramatically synthesize integrated schemas with optimal networks.
+Write an extension to print out the readable output string, you can make Queue adopt the **CustomStringConvertible** Protocol.
 
-* **Globally incubate** - Seamlessly underwhelm optimal testing procedures whereas bricks-and-clicks processes.
+![]({{site.baseurl}}/assets/img/queue/queue5.jpg)
 
-Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.
+## Implementing with Example
+Outside the implementation of Queue, write the following to enqueue data in our queue, declare Integer type to append integer values in the array. 
+You can play with it by changing it to String and creating a queue of string type as well.
 
-![]({{site.baseurl}}/assets/img/05.jpg)
+![]({{site.baseurl}}/assets/img/queue/queue5.jpg)
 
-Dynamically target high-payoff intellectual capital for customized technologies. Objectively integrate emerging core competencies before process-centric communities. Dramatically evisculate holistic innovation rather than client-centric data.
+Here, we have enqueued and dequeued the queue.
 
-Progressively maintain extensive infomediaries via extensible niches. Dramatically disseminate standardized metrics after resource-leveling processes. Objectively pursue diverse catalysts for change for interoperable meta-services.
+When you enqueue, the result is : [11, 22, 33, 44]
+When you dequeue, since we are popping out the first element of the queue,  the result is : [22, 33, 44]
+

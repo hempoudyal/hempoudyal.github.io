@@ -1,6 +1,6 @@
-title: Derrick Wells – Independent Product Designer
+title: Hem Poudyal
 logo:  # you can add own logo.
-description: Passionate designer curating designs for new startups  and  founders  and crafts  beautiful user interfaces with love.
+description: Passionate in iOS Apps development with pixel perfect design.
 baseurl: "/derrick" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -10,17 +10,17 @@ author:
   name: Hem Poudyal
   image: '/assets/img/imgProfile.jpg'
   job: iOS Engineer
-  bio: Passionate designer curating designs for new startups  and  founders  and crafts  beautiful user interfaces with love.
-  email: forexample@website.com
+  bio: Passionate in iOS Apps development with pixel perfect design.
+  email: hem.iosdev@gmail.com
 
 
 # Contact links
 contact:
   - name: Twitter
     link: https://twitter.com/
-  - name: Facebook
+  - name: LinkedIn
     link: https://facebook.com/
-  - name: Instagram
+  - name: Medium
     link: https://instagram.com/
 
 
