@@ -37,7 +37,7 @@ Proactively envisioned multimedia based expertise and cross-media growth strateg
 
 Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable potentialities.
 
-![]({{site.baseurl}}/assets/img/05.jpg)
+![](./assets/img/05.jpg)
 
 Dynamically target high-payoff intellectual capital for customized technologies. Objectively integrate emerging core competencies before process-centric communities. Dramatically evisculate holistic innovation rather than client-centric data.
 

@@ -10,13 +10,13 @@ Whenever we go for shopping or for some dinning experience, we usually have to s
 
 As in every queue, the one who goes in first, comes out first, it is similar with Queue Data Structure. We call it First in First out (FIFO), and we are going to implement it using array in Swift. 
 
-![]({{site.baseurl}}/assets/img/queue/queue2.jpg)
+![](./assets/img/queue/queue2.jpg)
 
 We are going to create a basic class in Swift Playground. It is going to be a generic queue, it will facilitate to create queue of any data types. We are writing an array of the generic type “T", which will hold our data. We have to initialize the queue as well.
 
 Next thing, is declaring a variable to check, if the array is empty. Since, we cannot dequeue an empty array. A queue also needs a peek method which returns the item at the beginning of the queue without removing it.
 
-![]({{site.baseurl}}/assets/img/queue/queue3.jpg)
+![](./assets/img/queue/queue3.jpg)
 
 ## Enqueue
 Now, we need to add values to our queue, it needs an enqueue method, which will add the object to the end of the Queue. This method will mutate the array, we have to explicitly specify it while declaring the enqueue method. 
@@ -24,19 +24,19 @@ Now, we need to add values to our queue, it needs an enqueue method, which will 
 ## Dequeue
 Similarly, we need to dequeue the queue, we will add a dequeue method that returns the first item in the queue. The return type is nullable to handle the queue being empty.
 
-![]({{site.baseurl}}/assets/img/queue/queue4.jpg)
+![](./assets/img/queue/queue4.jpg)
 
 Voila! our queue is ready, we are going to test it with Integer data.
 
 Write an extension to print out the readable output string, you can make Queue adopt the **CustomStringConvertible** Protocol.
 
-![]({{site.baseurl}}/assets/img/queue/queue5.jpg)
+![](./assets/img/queue/queue5.jpg)
 
 ## Implementing with Example
 Outside the implementation of Queue, write the following to enqueue data in our queue, declare Integer type to append integer values in the array. 
 You can play with it by changing it to String and creating a queue of string type as well.
 
-![]({{site.baseurl}}/assets/img/queue/queue5.jpg)
+![](./assets/img/queue/queue5.jpg)
 
 Here, we have enqueued and dequeued the queue.
 

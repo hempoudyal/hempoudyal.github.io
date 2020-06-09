@@ -6,12 +6,12 @@ layout: default
   <!-- begin author -->
   <section class="author" data-aos="fade-up" data-aos-easing="ease-out-quad" data-aos-duration="700">
     <div class="author__inner">
-  <img src="{{site.baseurl}}{{site.author.image}}" alt="{{site.author.name}}" class="author__img">
+  <img src=".{{site.author.image}}" alt="{{site.author.name}}" class="author__img">
       <h1 class="author__job">{{ site.author.job }}</h1>
       <p class="author__bio">{{ site.author.bio }}</p>
       <div class="author__more">
         <a href="mailto:{{site.author.email}}?subject=Hello%20%F0%9F%91%8B" class="say-hello">Say hello</a>
-        <a href="{{site.baseurl}}/about/" class="know-more">Know More</a>
+        <a href="./about/" class="know-more">Know More</a>
       </div>
     </div>
   </section>
@@ -24,7 +24,7 @@ layout: default
     <div class="article" data-aos="fade-up" data-aos-easing="ease-out-quad" data-aos-duration="800">
       {% if post.image %}
       <div class="article__image-box">
-        <a href="{{post.url | prepend: site.baseurl}}" class="article__image" style="background-image: url({{site.baseurl}}{{post.image}})"></a>
+        <a href="{{post.url | prepend: site.baseurl}}" class="article__image" style="background-image: url(.{{post.image}})"></a>
       </div>
       {% endif %}
       <div class="article__content">
