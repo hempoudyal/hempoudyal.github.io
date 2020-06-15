@@ -2,7 +2,7 @@
 layout: post
 title:  Queue implementation in Swift
 date:   2019-07-24 15:01:35 +0300
-image:  '/assets/img/queue/queue1.jpg'
+image:  './assets/img/queue/queue1.jpg'
 tags:   [Queue, Data Structure, Swift]
 ---
 
@@ -36,10 +36,14 @@ Write an extension to print out the readable output string, you can make Queue a
 Outside the implementation of Queue, write the following to enqueue data in our queue, declare Integer type to append integer values in the array. 
 You can play with it by changing it to String and creating a queue of string type as well.
 
-![](/assets/img/queue/queue5.jpg)
+![](/assets/img/queue/queue6.jpg)
 
 Here, we have enqueued and dequeued the queue.
 
 When you enqueue, the result is : [11, 22, 33, 44]
 When you dequeue, since we are popping out the first element of the queue,  the result is : [22, 33, 44]
+
+Complete Code:
+
+https://gist.github.com/hempoudyal/cec3cdbfcdf2bb4a1d309a95210d063b#file-queue-swift
 
