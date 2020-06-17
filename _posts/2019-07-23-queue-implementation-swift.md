@@ -45,5 +45,50 @@ When you dequeue, since we are popping out the first element of the queue,  the 
 
 Complete Code:
 
-https://gist.github.com/hempoudyal/cec3cdbfcdf2bb4a1d309a95210d063b#file-queue-swift
+{% highlight ruby %}
+
+struct Queue<T> {
+    
+    var array:[T] = []
+    
+    var isEmpty: Bool {
+        return array.isEmpty
+    }
+    
+    var peek: T? {
+        return array.first
+    }
+    
+    mutating func enqueue(_ element: T) {
+        array.append(element)
+    }
+    
+    mutating func dequeue() -> T? {
+        return isEmpty ? nil : array.removeFirst()
+    }
+    
+}
+
+extension Queue : CustomStringConvertible {
+    
+    var description: String {
+        return String(describing: array)
+    }
+    
+}
+
+
+var queue = Queue<Int>()
+queue.enqueue(11)
+queue.enqueue(22)
+queue.enqueue(33)
+queue.enqueue(44)
+
+print(queue)
+
+queue.dequeue()
+
+print(queue)
+
+{% endhighlight %}
 

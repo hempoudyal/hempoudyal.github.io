@@ -2,7 +2,7 @@
 layout: post
 title:  Implementing Tree Data Structure in Swift
 date:   2020-05-09 13:30:35 +0300
-image:  '/assets/img/04.jpg'
+image:  './assets/img/tree/treeMain.jpeg'
 tags:   [Swift, Data Structure, Trees, iOS]
 ---
 
@@ -20,7 +20,7 @@ A **tree** is a **data structure** that simulates the hierarchical relationship 
 
 **Level:** Level of a node represents the generation of a node. Root is at level 0, while its next child is at level 1.
 
-![](/assets/img/tree/tree1.jpg)
+![](/assets/img/tree/tree1.png)
 
 As shown in diagram, we have implemented a tree with real life example. Tree is made up of nodes, Indoor and Outdoor are children of root — Sports. Likewise, each of them has two children. Table tennis, chess, football and rugby, each of them is a leaf, as they don’t have children.
 
@@ -31,7 +31,7 @@ As shown in diagram, we have implemented a tree with real life example. Tree is 
 
 We will be implementing the basic Sports tree structure in Swift. As trees are made up of nodes, we are going to create a basic node class in Swift Playground.
 
-![](/assets/img/tree/tree2.jpg)
+![](/assets/img/tree/tree2.png)
 
 We have written a basic Node with a generic value “N” that it holds. It facilitates code reuse by allowing to build trees that hold different data types, just like arrays.
 
@@ -43,13 +43,13 @@ Additionally, we declared “children” as an array of nodes. Each child repres
 
 We want to add values to our tree, we need a function for it.
 
-![](/assets/img/tree/tree3.jpg)
+![](/assets/img/tree/tree3.png)
 
 We have declared an add(child:) method in our Node class to handle insertion in our tree.
 
 Let’s add values to create our Sports Tree.
 
-![](/assets/img/tree/tree4.jpg)
+![](/assets/img/tree/tree4.png)
 
 We have created our tree which corresponds to the “Sports” tree structure.
 
@@ -57,4 +57,41 @@ We will implement Depth First Traversal and Level Order Traversal of Tree Struct
 
 Complete code:
 
-https://gist.github.com/hempoudyal/c728075f890084ea36bc9a464667d684
+
+{% highlight ruby %}
+
+class Node<N> {
+    var value: N
+    var children:[Node] = []
+    
+    init (value: N) {
+        self.value = value
+    }
+    
+    func add(_ child: Node) {
+        self.children.append(child)
+    }
+}
+
+let sports = Node(value: "Sports")
+
+let indoor = Node(value: "Indoor")
+let outdoor = Node(value: "Outdoor")
+
+sports.add(indoor)
+sports.add(outdoor)
+
+let tableTennis = Node(value: "Table Tennis")
+let chess = Node(value: "Chess")
+
+indoor.add(tableTennis)
+indoor.add(chess)
+
+let football = Node(value: "Football")
+let rugby = Node(value: "Rugby")
+
+outdoor.add(football)
+outdoor.add(rugby)
+
+{% endhighlight %}
+
