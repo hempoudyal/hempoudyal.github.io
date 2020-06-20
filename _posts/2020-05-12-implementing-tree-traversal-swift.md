@@ -3,7 +3,7 @@ layout: post
 title:  Implementing Tree Traversal Algorithms in Swift
 date:   2020-05-12 14:01:35 +0300
 image:  './assets/img/traversal/traversalMain.jpeg'
-tags:   Data Structure, Swift, iOS
+tags:   [DataStructure, Swift, iOS]
 ---
 Tree Structure is great for describing hierarchical data, but it depends on your application in regards to what kind of extra functionality it needs to have. We are going to discuss traversal algorithms, fundamental operations related to tree.
 

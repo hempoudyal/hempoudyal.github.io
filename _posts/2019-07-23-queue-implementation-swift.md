@@ -3,7 +3,7 @@ layout: post
 title:  Queue implementation in Swift
 date:   2019-07-24 15:01:35 +0300
 image:  './assets/img/queue/queue1.jpg'
-tags:   [Queue, Data Structure, Swift]
+tags:   [Queue, DataStructure, Swift]
 ---
 
 Whenever we go for shopping or for some dinning experience, we usually have to stand in queue and wait for out turn. Amid the COVID-19 Pandemics, we can now see the queue being normal around us.

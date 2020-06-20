@@ -1,6 +1,6 @@
 title: Hem Poudyal
 logo:  # you can add own logo.
-description: Passionate in iOS Apps development with pixel perfect design.
+description: iOS Engineer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -10,18 +10,20 @@ author:
   name: Hem Poudyal
   image: '/assets/img/imgProfile.jpg'
   job: iOS Engineer
-  bio: Passionate in iOS Apps development with pixel perfect design.
+  bio: Passionate in problem solving, Believes in creation, Hungry to learn and improve Codes + Designs
   email: hem.iosdev@gmail.com
 
 
 # Contact links
 contact:
+  - name: Github
+    link: https://github.com/hempoudyal
   - name: Twitter
-    link: https://twitter.com/
+    link: https://twitter.com/hempoudyal
   - name: LinkedIn
-    link: https://facebook.com/
+    link: https://www.linkedin.com/in/hem-poudyal-3b935339/
   - name: Medium
-    link: https://instagram.com/
+    link: https://medium.com/@poudyalhem
 
 
 # Comment Section (Disqus)

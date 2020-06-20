@@ -3,7 +3,7 @@ layout: post
 title:  Graph Algorithms implementation in Swift - Avengers Example
 date:   2020-06-02 14:01:35 +0300
 image:  './assets/img/graph/graphMain.jpeg'
-tags:   Data Structure, Swift, iOS
+tags:   [DataStructure, Swift, iOS]
 ---
 Graphs are the widely used data structure in Computer Science. Basic understanding of Graphs can help to develop knowledge about how modern technologies are mapping complex data and using it for required functionalities.
 
