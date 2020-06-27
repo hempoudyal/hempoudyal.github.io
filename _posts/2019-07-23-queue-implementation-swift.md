@@ -2,7 +2,7 @@
 layout: post
 title:  Queue implementation in Swift
 date:   2019-07-24 15:01:35 +0300
-image:  './assets/img/queue/queue1.jpg'
+image:  './../../../assets/img/queue/queue1.jpg'
 tags:   [Queue, DataStructure, Swift]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  Implementing Tree Data Structure in Swift
 date:   2020-05-09 13:30:35 +0300
-image:  './assets/img/tree/treeMain.jpeg'
+image:  './../../../assets/img/tree/treeMain.jpeg'
 tags:   [Swift, DataStructure, Trees, iOS]
 ---
 

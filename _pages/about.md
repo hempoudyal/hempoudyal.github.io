@@ -5,9 +5,9 @@ permalink: /about/
 image: './assets/img/imgProfile.jpg'
 ---
 
-Hi, my name is Hem Poudyal. I come from the beautiful Himalayan Nation- Nepal. My interest overlaps **Engineering** and **Design**. My curiosity and interest has led me to establish myself as an iOS Engineer. My working style is being free, coming up with new approaches to solve underlying problems in development and enjoying every moment while I am building a product.
+Hi, my name is Hem Poudyal. I come from the beautiful Himalayan Nation- Nepal. My interest overlaps **Engineering** and **Design**. My curiosity and interest has led me to establish myself as an **iOS Engineer**. My working style is being free, coming up with new approaches to solve underlying problems in development and enjoying every moment while I am building a product.
 
-Designed and developed more than 15 advanced applications from use cases and functional requirements.
+I have designed and developed more than 15 advanced applications from use cases and functional requirements.
 
 It has been **over Seven years** since I have started developing Mobile Apps on 2013. In recent years, I have even led a Startup for 3 years where I along with my team used to develop lot of applications. I have experience of leading team and managing projects as well.
 
