@@ -1,43 +1,321 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hem Poudyal · iOS Engineer</title>
+<meta name="description" content="Hem Poudyal is an iOS engineer in Bremen with 10+ years of experience building native apps in Swift and SwiftUI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F7; --surface:#FFFFFF; --ink:#16222E; --muted:#56687A;
+  --line:#C9D5DE; --contour:#AFC2D0; --accent:#1F6F78; --accent-soft:#DCEDEE;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1821; --surface:#15222D; --ink:#E4ECF1; --muted:#93A6B5;
+    --line:#26394A; --contour:#2E4659; --accent:#6CC6CC; --accent-soft:#17333A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1821; --surface:#15222D; --ink:#E4ECF1; --muted:#93A6B5;
+  --line:#26394A; --contour:#2E4659; --accent:#6CC6CC; --accent-soft:#17333A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--accent);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
 
-<div class="container">
-  <!-- begin author -->
-  <section class="author" data-aos="fade-up" data-aos-easing="ease-out-quad" data-aos-duration="700">
-    <div class="author__inner">
-  <img src=".{{site.author.image}}" alt="{{site.author.name}}" class="author__img">
-      <h1 class="author__job">{{ site.author.job }}</h1>
-      <p class="author__bio">{{ site.author.bio }}</p>
-      <div class="author__more">
-        <a href="mailto:{{site.author.email}}?subject=Hello%20%F0%9F%91%8B" class="say-hello">Say hello</a>
-        <a href="./about/" class="know-more">Know More</a>
+/* Hero */
+.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero svg.contours{position:absolute;right:-12%;top:50%;transform:translateY(-50%);width:min(900px,95vw);height:auto;pointer-events:none}
+.contours path{fill:none;stroke:var(--contour);stroke-width:1.1}
+.contours path.index{stroke:var(--accent);stroke-width:1.6;opacity:.7}
+.hero .wrap{position:relative;width:100%;padding-top:4rem;padding-bottom:4rem}
+.who{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.avatar{width:64px;height:64px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.3rem;overflow:hidden;flex:none;border:2px solid var(--surface)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar img + span{display:none}
+.who p{margin:0;color:var(--muted);line-height:1.35}
+.who strong{color:var(--ink);font-weight:600}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,7.5vw,5.6rem);line-height:.98;letter-spacing:-.025em;margin:0 0 1.5rem;max-width:14ch;font-variation-settings:"opsz" 96}
+.lede{font-size:clamp(1.1rem,2vw,1.3rem);max-width:34ch;color:var(--muted);margin:0 0 2.2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.25rem;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;transition:background .15s,color .15s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+
+/* Sections */
+section{padding:clamp(4rem,9vw,7rem) 0;border-bottom:1px solid var(--line)}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 .75rem}
+.intro{color:var(--muted);max-width:56ch;margin:0 0 3rem}
+.since{margin:-.25rem 0 1rem;color:var(--accent);font-weight:600}
+h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.2;margin:0 0 .4rem}
+
+/* Now: TAG24 */
+.now{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.shift{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.9rem;margin:0 0 2rem;padding:1.4rem;background:var(--surface);border:1px solid var(--line);border-radius:18px}
+.shift span{font-family:var(--display);font-weight:600;font-size:1.05rem;line-height:1.25}
+.shift .from{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--contour);text-decoration-thickness:2px}
+.shift svg{width:34px;height:14px;color:var(--accent)}
+.points{list-style:none;padding:0;margin:0}
+.points li{padding:1.1rem 0;border-top:1px solid var(--line)}
+.points li:last-child{border-bottom:1px solid var(--line)}
+.points b{display:block;font-weight:600;margin-bottom:.15rem}
+.points p{margin:0;color:var(--muted)}
+
+/* Project */
+.project{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.phone{width:250px;aspect-ratio:9/19.5;border-radius:42px;background:var(--ink);padding:10px;box-shadow:0 30px 60px -30px rgba(22,34,46,.55)}
+.screen{height:100%;border-radius:33px;background:linear-gradient(170deg,#DDEBEE,#F6F8FA 55%);overflow:hidden;position:relative;color:#16222E;font-family:var(--body);display:flex;flex-direction:column}
+.screen img{width:100%;height:100%;object-fit:cover}
+.scr-top{padding:38px 18px 10px}
+.scr-top small{color:#56687A;font-size:.7rem}
+.scr-top div{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.01em}
+.task{margin:6px 14px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.72);font-size:.75rem;display:flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.9)}
+.task i{width:12px;height:12px;border-radius:50%;border:1.5px solid #1F6F78;flex:none}
+.task.done i{background:#1F6F78}
+.task.done{color:#56687A;text-decoration:line-through}
+.tabbar{margin:auto 12px 12px;display:flex;justify-content:space-around;padding:9px 6px;border-radius:22px;background:rgba(255,255,255,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.85);font-size:.6rem;color:#56687A}
+.tabbar span.on{color:#1F6F78;font-weight:600}
+.status{display:inline-block;font-size:.85rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:.25rem .7rem;border-radius:999px;margin-bottom:1rem}
+.stack{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 0;padding:0;list-style:none}
+.stack li{font-size:.9rem;padding:.3rem .75rem;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+
+/* Research */
+.research{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+.research .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.75rem}
+.research .card p{color:var(--muted);margin:.25rem 0 1rem}
+.research .note{margin:0;align-self:center;color:var(--muted);font-size:1.15rem;max-width:36ch}
+
+/* Timeline */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--line)}
+.timeline li:last-child{border-bottom:1px solid var(--line)}
+.timeline time{font-family:var(--display);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.timeline .role{font-weight:600}
+.timeline .org{color:var(--muted)}
+.timeline p{margin:.4rem 0 0;color:var(--muted);max-width:60ch}
+
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);margin-top:4rem}
+.plain{list-style:none;padding:0;margin:0}
+.plain li{padding:.55rem 0;border-top:1px solid var(--line)}
+.plain li span{color:var(--muted)}
+
+/* Writing */
+.posts{list-style:none;padding:0;margin:0}
+.posts li{border-top:1px solid var(--line)}
+.posts li:last-child{border-bottom:1px solid var(--line)}
+.posts a{display:flex;justify-content:space-between;gap:1rem;padding:1.15rem 0;text-decoration:none;color:var(--ink)}
+.posts a:hover .t{color:var(--accent);text-decoration:underline;text-underline-offset:.2em}
+.posts .t{font-weight:500}
+.posts .d{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* Contact */
+.contact{text-align:left}
+.contact .mail{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,5vw,3.4rem);letter-spacing:-.02em;color:var(--ink);text-decoration:none;word-break:break-all;display:inline-block;margin:.5rem 0 2rem;border-bottom:3px solid var(--accent)}
+.contact .mail:hover{color:var(--accent)}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
+
+@media (max-width:820px){
+  .now,.project,.research,.twocol{grid-template-columns:1fr}
+  .phone{width:220px;margin:0 auto}
+  .timeline li{grid-template-columns:1fr;gap:.25rem}
+  .hero svg.contours{right:-45%;opacity:.55}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="contours" viewBox="0 0 800 700" aria-hidden="true"></svg>
+  <div class="wrap">
+    <div class="who">
+      <div class="avatar">
+        <!-- On GitHub Pages this loads your existing photo from the repo; elsewhere it falls back to initials -->
+        <img src="assets/img/imgProfile.jpg" alt="Hem Poudyal" onerror="this.remove()"><span>HP</span>
+      </div>
+      <p><strong>Hem Poudyal</strong><br>iOS Engineer in Bremen</p>
+    </div>
+    <h1>I care about how apps feel.</h1>
+    <p class="lede">I like building apps that are easy to use. I studied human-computer interaction, and I try to bring what I learned there into the apps I build, mostly using native components and SwiftUI.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:poudyalhem@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
+      <a class="btn" href="https://github.com/hempoudyal">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="now">
+  <div class="wrap now">
+    <div>
+      <h2>Currently at TAG24 NEWS</h2>
+      <p class="since">Since 2021</p>
+      <p class="intro">I work as an iOS engineer at TAG24 NEWS, where I help build the news app. Together with my colleagues, I moved a legacy codebase onto SwiftUI and native components, without pausing the app readers use every day.</p>
+      <div class="shift" aria-label="From legacy UIKit code to modern SwiftUI">
+        <span class="from">Legacy code, custom UI</span>
+        <svg viewBox="0 0 34 14" fill="none"><path d="M1 7h30M25 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>SwiftUI, native components</span>
+      </div>
+      <a class="btn" href="https://apps.apple.com/app/id1349810082">View on the App Store</a>
+    </div>
+    <ul class="points">
+      <li><b>Rebuilt screens in SwiftUI</b><p>We migrated legacy views to a modern SwiftUI architecture that's easier to maintain and extend.</p></li>
+      <li><b>Native components first</b><p>We replaced custom-built UI with system components, so the app follows iOS conventions and picks up platform improvements for free.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap project">
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <!-- Replace this mock with a real screenshot: <img src="assets/img/app-today.png" alt=""> -->
+        <div class="scr-top"><small>Monday</small><div>Today</div></div>
+        <div class="task done"><i></i>Morning ride along the Weser</div>
+        <div class="task"><i></i>Sketch cover for photo zine</div>
+        <div class="task"><i></i>Record demo, verse two</div>
+        <div class="task"><i></i>German practice, 20 min</div>
+        <div class="tabbar"><span class="on">Today</span><span>Projects</span><span>Calendar</span><span>Settings</span></div>
       </div>
     </div>
-  </section>
-  <!-- end author -->
-</div>
+    <div>
+      <span class="status">Private project, under development</span>
+      <h2>Muse Organizer</h2>
+      <p class="intro" style="margin-bottom:1rem">A personal project manager built around “leisure with purpose”: a calm place to plan the things you do for yourself, not just for work.</p>
+      <p style="color:var(--muted);max-width:56ch;margin:0">It's a side project where I try out new ideas. Your data stays on your device and syncs through iCloud. It will also use AI to help you sort through your tasks, with a design based on the latest iOS design language.</p>
+      <ul class="stack">
+        <li>SwiftUI</li><li>SwiftData</li><li>CloudKit</li><li>iOS 27</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-<div class="container">
-  {% if site.posts.size > 0 %}
-    {% for post in site.posts %}
-    <div class="article" data-aos="fade-up" data-aos-easing="ease-out-quad" data-aos-duration="800">
-      {% if post.image %}
-      <div class="article__image-box">
-        <a href="{{post.url | prepend: site.baseurl}}" class="article__image" style="background-image: url(.{{post.image}})"></a>
+<section id="research">
+  <div class="wrap">
+    <h2>Research in VR and interaction</h2>
+    <p class="intro">My M.Sc. in Digital Media at the University of Bremen focused on virtual reality, games and human-computer interaction: how people actually move through and use digital spaces.</p>
+    <div class="research">
+      <div class="card">
+        <h3>Locomotion study in VR</h3>
+        <p>My Master's project: a study of how people move through a virtual environment built as a digital twin, and which locomotion techniques feel natural.</p>
+        <a href="https://gitlab.informatik.uni-bremen.de/poudyhem/digitaltwin-vr">View the project on GitLab</a>
       </div>
-      {% endif %}
-      <div class="article__content">
-        <h2 class="article__title">
-          <a href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a>
-        </h2>
-        <div class="article__meta">
-          <span class="article__date">Published <time datetime="{{ post.date | date_to_xmlschema }}">{% assign date_format = site.minima.date_format | default: "%B %-d, %Y" %}{{ post.date | date: date_format }}</time></span>
-        </div>
-        <p class="article__excerpt">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncate: 130 }}{% endif %}</p>
-        <a href="{{ post.url | prepend: site.baseurl }}" class="read-more">Read the rest</a>
+      <p class="note">The study taught me to look closely at how people use things. I try to bring that into my iOS work, even in small details.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="intro">From my first Objective-C apps in Kathmandu to building a news app in Germany.</p>
+    <ol class="timeline" reversed>
+      <li><time>2021 – now</time><div><div class="role">iOS Engineer</div><div class="org">TAG24 NEWS, Germany</div><p>Started part-time alongside my Master's studies in 2021, and joined full-time as an iOS engineer in 2023. Helped modernise the news app with a SwiftUI migration and native components.</p></div></li>
+      <li><time>2018 – 2020</time><div><div class="role">Freelance iOS Developer</div><div class="org">Remote, for clients in several countries</div><p>Took apps from design and planning through to release, working with SwiftUI, Fastlane, Firebase and GraphQL.</p></div></li>
+      <li><time>2015 – 2018</time><div><div class="role">iOS Developer</div><div class="org">Eepos IT Holdings, Kathmandu</div><p>Built iOS apps in Swift and Objective-C for a US-based company, with a focus on code quality and performance.</p></div></li>
+      <li><time>2014 – 2015</time><div><div class="role">iOS Developer</div><div class="org">Yetistep Technologies, Kathmandu</div><p>Worked on Koolkat, a food delivery app that was quite advanced for its time, building features and improving stability.</p></div></li>
+      <li><time>2013 – 2014</time><div><div class="role">iOS Developer</div><div class="org">Kalika Infotech (Applikali), Kathmandu</div><p>My first iOS role. Helped the young company launch a few apps, most of which did well in the local market.</p></div></li>
+    </ol>
+
+    <div class="twocol">
+      <div>
+        <h3>Education</h3>
+        <ul class="plain">
+          <li>M.Sc. Digital Media<br><span>University of Bremen, 2020 – 2024</span></li>
+          <li>B.E. Computer Engineering<br><span>Kathmandu Engineering College (Tribhuvan University), 2008 – 2012</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Tools and languages</h3>
+        <ul class="plain">
+          <li>Swift, SwiftUI, UIKit, Objective-C</li>
+          <li>SwiftData, CloudKit, Firebase, GraphQL</li>
+          <li>Fastlane, Git, UI/UX prototyping</li>
+          <li>English (C1), German (B1), Nepali (native)</li>
+        </ul>
       </div>
     </div>
-    {% endfor %}
-  {% endif %}
-</div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <h2>Writing</h2>
+    <p class="intro">Articles on data structures and algorithms in Swift. More on <a href="https://medium.com/@poudyalhem">Medium</a>.</p>
+    <ul class="posts">
+      <li><a href="https://hempoudyal.github.io/2020/06/02/graph-implementation-swift/"><span class="t">Graph algorithms in Swift, with an Avengers example</span><span class="d">Jun 2020</span></a></li>
+      <li><a href="https://hempoudyal.github.io/2020/05/12/implementing-tree-traversal-swift/"><span class="t">Implementing tree traversal algorithms in Swift</span><span class="d">May 2020</span></a></li>
+      <li><a href="https://hempoudyal.github.io/2020/05/09/implementing-tree-swift/"><span class="t">Implementing a tree data structure in Swift</span><span class="d">May 2020</span></a></li>
+      <li><a href="https://hempoudyal.github.io/2019/07/24/queue-implementation-swift/"><span class="t">Queue implementation in Swift</span><span class="d">Jul 2019</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Say hello</h2>
+    <p class="intro" style="margin-bottom:0">Happy to talk about iOS roles, SwiftUI migrations, or anything you saw here.</p>
+    <a class="mail" href="mailto:poudyalhem@gmail.com">poudyalhem@gmail.com</a>
+    <div class="actions">
+      <a class="btn" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
+      <a class="btn" href="https://github.com/hempoudyal">GitHub</a>
+      <a class="btn" href="https://medium.com/@poudyalhem">Medium</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Hem Poudyal, Bremen. Built by hand, no tracking.</div></footer>
+
+<script>
+(function(){
+  // Topographic contour lines: two peaks, drawn once on load.
+  var svg=document.querySelector('.contours'); if(!svg) return;
+  var NS='http://www.w3.org/2000/svg';
+  function ring(cx,cy,r,seed){
+    var pts=[],n=90;
+    for(var i=0;i<n;i++){
+      var a=i/n*Math.PI*2;
+      var k=1+0.10*Math.sin(3*a+seed)+0.06*Math.sin(5*a+seed*1.7)+0.04*Math.sin(8*a+seed*.6);
+      pts.push([cx+Math.cos(a)*r*k*1.15, cy+Math.sin(a)*r*k*0.85]);
+    }
+    var d='M'+pts[0].join(',');
+    for(var j=1;j<=n;j++){var p=pts[j%n];d+='L'+p[0].toFixed(1)+','+p[1].toFixed(1);}
+    return d+'Z';
+  }
+  var peaks=[{x:470,y:330,count:13,step:24,seed:1.3},{x:250,y:470,count:6,step:20,seed:4.1}];
+  var paths=[];
+  peaks.forEach(function(pk){
+    for(var i=1;i<=pk.count;i++){
+      var p=document.createElementNS(NS,'path');
+      p.setAttribute('d',ring(pk.x,pk.y,i*pk.step,pk.seed+i*0.35));
+      if(i%5===0) p.setAttribute('class','index');
+      svg.appendChild(p); paths.push(p);
+    }
+  });
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  paths.forEach(function(p,i){
+    var L=p.getTotalLength();
+    p.style.strokeDasharray=L; p.style.strokeDashoffset=L;
+    p.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:1600,delay:i*45,easing:'cubic-bezier(.3,.6,.2,1)',fill:'forwards'});
+  });
+})();
+</script>
+</body>
+</html>
