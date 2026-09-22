@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hem Poudyal · iOS Engineer</title>
-<meta name="description" content="Hem Poudyal is an iOS engineer in Bremen with 10+ years of experience building native apps in Swift and SwiftUI.">
+<meta name="description" content="Hem Poudyal is a senior iOS engineer in Bremen, Germany with 10+ years of experience building native apps in Swift and SwiftUI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2316222E'/><text x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='13' fill='%236CC6CC'>HP</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -43,14 +44,19 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .contours path{fill:none;stroke:var(--contour);stroke-width:1.1}
 .contours path.index{stroke:var(--accent);stroke-width:1.6;opacity:.7}
 .hero .wrap{position:relative;width:100%;padding-top:4rem;padding-bottom:4rem}
-.who{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
-.avatar{width:64px;height:64px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.3rem;overflow:hidden;flex:none;border:2px solid var(--surface)}
+.who{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.25rem}
+.avatar{width:clamp(100px,14vw,140px);height:clamp(100px,14vw,140px);border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);overflow:hidden;flex:none;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
 .avatar img{width:100%;height:100%;object-fit:cover}
 .avatar img + span{display:none}
-.who p{margin:0;color:var(--muted);line-height:1.35}
-.who strong{color:var(--ink);font-weight:600}
+.who-info p{margin:0;line-height:1.4}
+.who-info .name{font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,2.5vw,1.35rem);color:var(--ink)}
+.who-info .loc{color:var(--muted);font-size:.95rem}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,7.5vw,5.6rem);line-height:.98;letter-spacing:-.025em;margin:0 0 1.5rem;max-width:14ch;font-variation-settings:"opsz" 96}
-.lede{font-size:clamp(1.1rem,2vw,1.3rem);max-width:34ch;color:var(--muted);margin:0 0 2.2rem}
+.lede{font-size:clamp(1.05rem,2vw,1.25rem);max-width:36ch;color:var(--muted);margin:0 0 .75rem}
+.read-more{display:inline-block;background:none;border:none;padding:0;margin:0 0 2rem;font:600 1rem var(--body);color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
+.read-more:hover{opacity:.75}
+#lede-more{margin-bottom:1.5rem}
+#lede-more p{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--muted);max-width:38ch;margin:0 0 .5rem}
 .actions{display:flex;flex-wrap:wrap;gap:.75rem}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.25rem;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;transition:background .15s,color .15s}
 .btn:hover{background:var(--ink);color:var(--bg)}
@@ -80,24 +86,6 @@ h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.2;
 .points b{display:block;font-weight:600;margin-bottom:.15rem}
 .points p{margin:0;color:var(--muted)}
 
-/* Project */
-.project{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-.phone{width:250px;aspect-ratio:9/19.5;border-radius:42px;background:var(--ink);padding:10px;box-shadow:0 30px 60px -30px rgba(22,34,46,.55)}
-.screen{height:100%;border-radius:33px;background:linear-gradient(170deg,#DDEBEE,#F6F8FA 55%);overflow:hidden;position:relative;color:#16222E;font-family:var(--body);display:flex;flex-direction:column}
-.screen img{width:100%;height:100%;object-fit:cover}
-.scr-top{padding:38px 18px 10px}
-.scr-top small{color:#56687A;font-size:.7rem}
-.scr-top div{font-family:var(--display);font-weight:800;font-size:1.5rem;letter-spacing:-.01em}
-.task{margin:6px 14px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.72);font-size:.75rem;display:flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.9)}
-.task i{width:12px;height:12px;border-radius:50%;border:1.5px solid #1F6F78;flex:none}
-.task.done i{background:#1F6F78}
-.task.done{color:#56687A;text-decoration:line-through}
-.tabbar{margin:auto 12px 12px;display:flex;justify-content:space-around;padding:9px 6px;border-radius:22px;background:rgba(255,255,255,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.85);font-size:.6rem;color:#56687A}
-.tabbar span.on{color:#1F6F78;font-weight:600}
-.status{display:inline-block;font-size:.85rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:.25rem .7rem;border-radius:999px;margin-bottom:1rem}
-.stack{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 0;padding:0;list-style:none}
-.stack li{font-size:.9rem;padding:.3rem .75rem;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
-
 /* Research */
 .research{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
 .research .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.75rem}
@@ -117,6 +105,7 @@ h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.2;
 .plain{list-style:none;padding:0;margin:0}
 .plain li{padding:.55rem 0;border-top:1px solid var(--line)}
 .plain li span{color:var(--muted)}
+.plain li strong{font-weight:600}
 
 /* Writing */
 .posts{list-style:none;padding:0;margin:0}
@@ -134,8 +123,7 @@ h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.2;
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 
 @media (max-width:820px){
-  .now,.project,.research,.twocol{grid-template-columns:1fr}
-  .phone{width:220px;margin:0 auto}
+  .now,.research,.twocol{grid-template-columns:1fr}
   .timeline li{grid-template-columns:1fr;gap:.25rem}
   .hero svg.contours{right:-45%;opacity:.55}
 }
@@ -152,13 +140,19 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
   <div class="wrap">
     <div class="who">
       <div class="avatar">
-        <!-- On GitHub Pages this loads your existing photo from the repo; elsewhere it falls back to initials -->
         <img src="assets/img/imgProfile.jpg" alt="Hem Poudyal" onerror="this.remove()"><span>HP</span>
       </div>
-      <p><strong>Hem Poudyal</strong><br>iOS Engineer in Bremen</p>
+      <div class="who-info">
+        <p class="name">Hem Poudyal</p>
+        <p data-i18n="loc" class="loc">iOS Engineer in Bremen, Germany</p>
+      </div>
     </div>
-    <h1 data-i18n="h1">I care about how apps feel.</h1>
-    <p data-i18n="lede" class="lede">I like building apps that are easy to use. I studied human-computer interaction, and I try to bring what I learned there into the apps I build, mostly using native components and SwiftUI.</p>
+    <h1 data-i18n="h1">Ten years of making things feel right.</h1>
+    <p data-i18n="lede" class="lede">Senior iOS engineer with 10+ years of experience building native apps in Swift and SwiftUI. My background in human-computer interaction shapes how I approach every layer of the work.</p>
+    <div id="lede-more" hidden>
+      <p data-i18n="lede_more">I started writing iOS apps in Kathmandu in 2013 — when Objective-C was still the default. After nearly a decade building apps for companies in Nepal and for international clients, I moved to Germany to study Digital Media at the University of Bremen, focusing on virtual reality and human-computer interaction. That combination of real product experience and research-led education shapes my approach: I care about the gap between what software does and how it feels to use.</p>
+    </div>
+    <button id="lede-toggle" class="read-more" aria-expanded="false">Read more</button>
     <div class="actions">
       <a data-i18n="email" class="btn primary" href="mailto:poudyalhem@gmail.com">Email me</a>
       <a class="btn" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
@@ -173,7 +167,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
     <div>
       <h2 data-i18n="now_h">Currently at TAG24 NEWS</h2>
       <p data-i18n="since" class="since">Since 2021</p>
-      <p data-i18n="now_intro" class="intro">I work as an iOS engineer at TAG24 NEWS, where I help build the news app. Together with my colleagues, I moved a legacy codebase onto SwiftUI and native components, without pausing the app readers use every day.</p>
+      <p data-i18n="now_intro" class="intro">At TAG24 NEWS since 2021, starting part-time during a Master's degree and joining full-time in 2023. The team migrated legacy views to SwiftUI and native components — keeping the app running in readers' hands throughout, no big-bang rewrite.</p>
       <div class="shift" aria-label="From legacy UIKit code to modern SwiftUI">
         <span data-i18n="from" class="from">Legacy code, custom UI</span>
         <svg viewBox="0 0 34 14" fill="none"><path d="M1 7h30M25 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -182,34 +176,9 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
       <a data-i18n="store" class="btn" href="https://apps.apple.com/app/id1349810082">View on the App Store</a>
     </div>
     <ul class="points">
-      <li><b data-i18n="p1b">Rebuilt screens in SwiftUI</b><p data-i18n="p1">We migrated legacy views to a modern SwiftUI architecture that's easier to maintain and extend.</p></li>
-      <li><b data-i18n="p2b">Native components first</b><p data-i18n="p2">We replaced custom-built UI with system components, so the app follows iOS conventions and picks up platform improvements for free.</p></li>
+      <li><b data-i18n="p1b">Migrated legacy views to SwiftUI</b><p data-i18n="p1">Legacy UIKit views were rebuilt as modern SwiftUI components — easier to maintain, faster to extend, and deployed incrementally without feature freezes.</p></li>
+      <li><b data-i18n="p2b">Native components first</b><p data-i18n="p2">Custom-built UI was replaced with system components, so the app follows iOS conventions and picks up platform improvements for free.</p></li>
     </ul>
-  </div>
-</section>
-
-<section id="project">
-  <div class="wrap project">
-    <div class="phone" aria-hidden="true">
-      <div class="screen">
-        <!-- Replace this mock with a real screenshot: <img src="assets/img/app-today.png" alt=""> -->
-        <div class="scr-top"><small>Monday</small><div>Today</div></div>
-        <div class="task done"><i></i>Morning ride along the Weser</div>
-        <div class="task"><i></i>Sketch cover for photo zine</div>
-        <div class="task"><i></i>Record demo, verse two</div>
-        <div class="task"><i></i>German practice, 20 min</div>
-        <div class="tabbar"><span class="on">Today</span><span>Projects</span><span>Calendar</span><span>Settings</span></div>
-      </div>
-    </div>
-    <div>
-      <span data-i18n="status" class="status">Private project, under development</span>
-      <h2>Muse Organizer</h2>
-      <p data-i18n="muse1" class="intro" style="margin-bottom:1rem">A personal project manager built around “leisure with purpose”: a calm place to plan the things you do for yourself, not just for work.</p>
-      <p data-i18n="muse2" style="color:var(--muted);max-width:56ch;margin:0">It's a side project where I try out new ideas. Your data stays on your device and syncs through iCloud. It will also use AI to help you sort through your tasks, with a design based on the latest iOS design language.</p>
-      <ul class="stack">
-        <li>SwiftUI</li><li>SwiftData</li><li>CloudKit</li><li>iOS 27</li>
-      </ul>
-    </div>
   </div>
 </section>
 
@@ -231,21 +200,21 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 <section id="experience">
   <div class="wrap">
     <h2 data-i18n="exp_h">Experience</h2>
-    <p data-i18n="exp_intro" class="intro">From my first Objective-C apps in Kathmandu to building a news app in Germany.</p>
+    <p data-i18n="exp_intro" class="intro">From the first Objective-C apps in Kathmandu to building a news app in Germany.</p>
     <ol class="timeline" reversed>
-      <li><time data-i18n="now_t">2021 – now</time><div><div class="role">iOS Engineer</div><div data-i18n="tag_org" class="org">TAG24 NEWS, Germany</div><p data-i18n="tag_p">Started part-time alongside my Master's studies in 2021, and joined full-time as an iOS engineer in 2023. Helped modernise the news app with a SwiftUI migration and native components.</p></div></li>
+      <li><time data-i18n="now_t">2021 – now</time><div><div class="role">iOS Engineer</div><div data-i18n="tag_org" class="org">TAG24 NEWS, Germany</div><p data-i18n="tag_p">Started part-time alongside a Master's degree in 2021, joined full-time in 2023. Contributed to modernising the news app through a SwiftUI migration and adoption of native components.</p></div></li>
       <li><time>2018 – 2020</time><div><div class="role">Freelance iOS Developer</div><div data-i18n="fr_org" class="org">Remote, for clients in several countries</div><p data-i18n="fr_p">Took apps from design and planning through to release, working with SwiftUI, Fastlane, Firebase and GraphQL.</p></div></li>
       <li><time>2015 – 2018</time><div><div class="role">iOS Developer</div><div class="org">Eepos IT Holdings, Kathmandu</div><p data-i18n="ee_p">Built iOS apps in Swift and Objective-C for a US-based company, with a focus on code quality and performance.</p></div></li>
       <li><time>2014 – 2015</time><div><div class="role">iOS Developer</div><div class="org">Yetistep Technologies, Kathmandu</div><p data-i18n="ye_p">Worked on Koolkat, a food delivery app that was quite advanced for its time, building features and improving stability.</p></div></li>
-      <li><time>2013 – 2014</time><div><div class="role">iOS Developer</div><div class="org">Kalika Infotech (Applikali), Kathmandu</div><p data-i18n="ka_p">My first iOS role. Helped the young company launch a few apps, most of which did well in the local market.</p></div></li>
+      <li><time>2013 – 2014</time><div><div class="role">iOS Developer</div><div class="org">Kalika Infotech (Applikali), Kathmandu</div><p data-i18n="ka_p">First iOS role. Helped the young company launch several apps, most of which did well in the local market.</p></div></li>
     </ol>
 
     <div class="twocol">
       <div>
         <h3 data-i18n="edu_h">Education</h3>
         <ul class="plain">
-          <li data-i18n="msc">M.Sc. Digital Media<br><span>University of Bremen, 2020 – 2024</span></li>
-          <li>B.E. Computer Engineering<br><span>Kathmandu Engineering College (Tribhuvan University), 2008 – 2012</span></li>
+          <li data-i18n="msc"><strong>M.Sc. Digital Media</strong><br><span>University of Bremen, 2020 – 2024</span></li>
+          <li><strong>B.E. Computer Engineering</strong><br><span>Kathmandu Engineering College (Tribhuvan University), 2008 – 2012</span></li>
         </ul>
       </div>
       <div>
@@ -274,6 +243,19 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
   </div>
 </section>
 
+<section id="interests">
+  <div class="wrap">
+    <h2 data-i18n="hob_h">Beyond the code</h2>
+    <p data-i18n="hob_intro" class="intro">What keeps me curious outside of work.</p>
+    <ul class="points">
+      <li><b data-i18n="hob1b">Photography</b><p data-i18n="hob1">Documenting places and moments, mostly on a camera rather than a phone. Currently working on a photo zine project.</p></li>
+      <li><b data-i18n="hob2b">Music</b><p data-i18n="hob2">Recording demos and sketching out arrangements — an ongoing project that rarely feels finished.</p></li>
+      <li><b data-i18n="hob3b">Cycling</b><p data-i18n="hob3">Early morning rides along the Weser. It's the most reliable way to clear your head in Bremen.</p></li>
+      <li><b data-i18n="hob4b">Languages</b><p data-i18n="hob4">Actively working on German, slowly closing the gap between B1 and fluency.</p></li>
+    </ul>
+  </div>
+</section>
+
 <section id="contact" class="contact">
   <div class="wrap">
     <h2 data-i18n="ct_h">Say hello</h2>
@@ -288,11 +270,10 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 </section>
 </main>
 
-<footer><div data-i18n="foot" class="wrap">Hem Poudyal, Bremen. Built by hand, no tracking.</div></footer>
+<footer><div data-i18n="foot" class="wrap">Hem Poudyal, Bremen, Germany.</div></footer>
 
 <script>
 (function(){
-  // Topographic contour lines: two peaks, drawn once on load.
   var svg=document.querySelector('.contours'); if(!svg) return;
   var NS='http://www.w3.org/2000/svg';
   function ring(cx,cy,r,seed){
@@ -326,7 +307,81 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 </script>
 <script>
 (function(){
-  var DE={"h1": "Mir ist wichtig, wie sich Apps anfühlen.", "lede": "Ich entwickle gerne Apps, die einfach zu bedienen sind. Ich habe Mensch-Computer-Interaktion studiert und versuche, das Gelernte in meine Apps einzubringen, meist mit nativen Komponenten und SwiftUI.", "email": "E-Mail schreiben", "now_h": "Aktuell bei TAG24 NEWS", "since": "Seit 2021", "now_intro": "Ich arbeite als iOS-Engineer bei TAG24 NEWS und entwickle dort die News-App mit. Gemeinsam mit meinen Kolleginnen und Kollegen habe ich eine Legacy-Codebasis auf SwiftUI und native Komponenten umgestellt, während die App im täglichen Betrieb weiterlief.", "from": "Legacy-Code, eigene UI", "to": "SwiftUI, native Komponenten", "store": "Im App Store ansehen", "p1b": "Screens in SwiftUI neu gebaut", "p1": "Wir haben Legacy-Views auf eine moderne SwiftUI-Architektur migriert, die leichter zu warten und zu erweitern ist.", "p2b": "Native Komponenten zuerst", "p2": "Wir haben selbstgebaute UI durch Systemkomponenten ersetzt. So folgt die App den iOS-Konventionen und profitiert automatisch von Verbesserungen der Plattform.", "status": "Privates Projekt, in Entwicklung", "muse1": "Ein persönlicher Projektmanager rund um „Freizeit mit Sinn“: ein ruhiger Ort, um die Dinge zu planen, die du für dich selbst tust, nicht nur für die Arbeit.", "muse2": "Es ist ein Nebenprojekt, in dem ich neue Ideen ausprobiere. Deine Daten bleiben auf deinem Gerät und werden über iCloud synchronisiert. Außerdem soll KI dir helfen, deine Aufgaben zu sortieren, mit einem Design, das sich an der aktuellen iOS-Designsprache orientiert.", "res_h": "Forschung zu VR und Interaktion", "res_intro": "Mein M.Sc. in Digitalen Medien an der Universität Bremen hatte den Schwerpunkt Virtual Reality, Games und Mensch-Computer-Interaktion: wie Menschen sich in digitalen Räumen bewegen und sie nutzen.", "vr_h": "Studie zur Fortbewegung in VR", "vr_p": "Mein Masterprojekt: eine Studie dazu, wie sich Menschen durch eine virtuelle Umgebung bewegen, die als digitaler Zwilling aufgebaut ist, und welche Fortbewegungstechniken sich natürlich anfühlen.", "vr_link": "Projekt auf GitLab ansehen", "note": "Die Studie hat mir beigebracht, genau hinzuschauen, wie Menschen Dinge nutzen. Das versuche ich in meine iOS-Arbeit einzubringen, auch in kleinen Details.", "exp_h": "Berufserfahrung", "exp_intro": "Von meinen ersten Objective-C-Apps in Kathmandu bis zu einer News-App in Deutschland.", "now_t": "2021 – heute", "tag_org": "TAG24 NEWS, Deutschland", "tag_p": "2021 in Teilzeit neben meinem Masterstudium gestartet, seit 2023 in Vollzeit als iOS-Engineer. Mitgewirkt an der Modernisierung der News-App durch eine SwiftUI-Migration und native Komponenten.", "fr_org": "Remote, für Kunden in mehreren Ländern", "fr_p": "Apps von Design und Planung bis zum Release begleitet, mit SwiftUI, Fastlane, Firebase und GraphQL.", "ee_p": "iOS-Apps in Swift und Objective-C für ein US-Unternehmen entwickelt, mit Fokus auf Codequalität und Performance.", "ye_p": "An Koolkat gearbeitet, einer für ihre Zeit recht fortschrittlichen Essenslieferungs-App: Features entwickelt und die Stabilität verbessert.", "ka_p": "Meine erste iOS-Stelle. Ich habe dem jungen Unternehmen geholfen, einige Apps zu veröffentlichen, von denen die meisten auf dem lokalen Markt gut ankamen.", "edu_h": "Ausbildung", "msc": "M.Sc. Digitale Medien<br><span>Universität Bremen, 2020 – 2024</span>", "tools_h": "Tools und Sprachen", "tools3": "Fastlane, Git, UI/UX-Prototyping", "langs": "Englisch (C1), Deutsch (B1), Nepali (Muttersprache)", "wr_h": "Artikel", "wr_intro": "Artikel über Datenstrukturen und Algorithmen in Swift (auf Englisch). Mehr auf <a href=\"https://medium.com/@poudyalhem\">Medium</a>.", "ct_h": "Kontakt", "ct_intro": "Ich freue mich über Nachrichten zu iOS-Stellen, SwiftUI-Migrationen oder allem, was du hier gesehen hast.", "foot": "Hem Poudyal, Bremen. Von Hand gebaut, ohne Tracking."}, EN={};
+  /* Expandable about */
+  var tog=document.getElementById('lede-toggle');
+  var more=document.getElementById('lede-more');
+  function btnLabel(open){
+    var de=document.documentElement.lang==='de';
+    return open?(de?'Weniger anzeigen':'Show less'):(de?'Mehr lesen':'Read more');
+  }
+  if(tog&&more){
+    tog.addEventListener('click',function(){
+      var isOpen=!more.hidden;
+      more.hidden=isOpen;
+      tog.setAttribute('aria-expanded',String(!isOpen));
+      tog.textContent=btnLabel(!isOpen);
+    });
+    new MutationObserver(function(){
+      tog.textContent=btnLabel(!more.hidden);
+    }).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  }
+})();
+</script>
+<script>
+(function(){
+  var DE={
+    "loc": "iOS Engineer in Bremen, Deutschland",
+    "h1": "Zehn Jahre lang das richtige Gefühl.",
+    "lede": "Senior iOS Engineer mit über 10 Jahren Erfahrung im Entwickeln nativer Apps in Swift und SwiftUI. Mein Hintergrund in der Mensch-Computer-Interaktion prägt, wie ich an jede Ebene der Arbeit herangehe.",
+    "lede_more": "Ich habe 2013 in Kathmandu mit dem Entwickeln von iOS-Apps begonnen — damals noch mit Objective-C. Nach fast einem Jahrzehnt, in dem ich Apps für Unternehmen in Nepal und internationale Kunden gebaut habe, bin ich nach Deutschland gezogen, um Digitale Medien an der Universität Bremen zu studieren. Der Schwerpunkt lag auf Virtual Reality und Mensch-Computer-Interaktion. Diese Kombination aus realer Produkterfahrung und forschungsbasierter Ausbildung prägt meinen Ansatz: Ich interessiere mich für die Lücke zwischen dem, was Software tut, und dem, wie es sich anfühlt, sie zu benutzen.",
+    "email": "E-Mail schreiben",
+    "now_h": "Aktuell bei TAG24 NEWS",
+    "since": "Seit 2021",
+    "now_intro": "Seit 2021 bei TAG24 NEWS, zunächst in Teilzeit neben dem Masterstudium, seit 2023 in Vollzeit. Das Team hat Legacy-Views zu SwiftUI und nativen Komponenten migriert — während die App im täglichen Betrieb weiterlief, ohne großen Rewrite.",
+    "from": "Legacy-Code, eigene UI",
+    "to": "SwiftUI, native Komponenten",
+    "store": "Im App Store ansehen",
+    "p1b": "Legacy-Views zu SwiftUI migriert",
+    "p1": "Legacy-UIKit-Views wurden schrittweise als moderne SwiftUI-Komponenten neu gebaut — leichter zu warten, schneller zu erweitern, inkrementell ohne Feature-Freezes ausgerollt.",
+    "p2b": "Native Komponenten zuerst",
+    "p2": "Selbstgebaute UI wurde durch Systemkomponenten ersetzt. So folgt die App den iOS-Konventionen und profitiert automatisch von Plattformverbesserungen.",
+    "res_h": "Forschung zu VR und Interaktion",
+    "res_intro": "Mein M.Sc. in Digitalen Medien an der Universität Bremen hatte den Schwerpunkt Virtual Reality, Games und Mensch-Computer-Interaktion: wie Menschen sich in digitalen Räumen bewegen und sie nutzen.",
+    "vr_h": "Studie zur Fortbewegung in VR",
+    "vr_p": "Mein Masterprojekt: eine Studie dazu, wie sich Menschen durch eine virtuelle Umgebung bewegen, die als digitaler Zwilling aufgebaut ist, und welche Fortbewegungstechniken sich natürlich anfühlen.",
+    "vr_link": "Projekt auf GitLab ansehen",
+    "note": "Die Studie hat mir beigebracht, genau hinzuschauen, wie Menschen Dinge nutzen. Das versuche ich in meine iOS-Arbeit einzubringen, auch in kleinen Details.",
+    "exp_h": "Berufserfahrung",
+    "exp_intro": "Von den ersten Objective-C-Apps in Kathmandu bis zur News-App in Deutschland.",
+    "now_t": "2021 – heute",
+    "tag_org": "TAG24 NEWS, Deutschland",
+    "tag_p": "2021 in Teilzeit neben dem Masterstudium gestartet, seit 2023 in Vollzeit. Zur Modernisierung der News-App durch eine SwiftUI-Migration und native Komponenten beigetragen.",
+    "fr_org": "Remote, für Kunden in mehreren Ländern",
+    "fr_p": "Apps von Design und Planung bis zum Release begleitet, mit SwiftUI, Fastlane, Firebase und GraphQL.",
+    "ee_p": "iOS-Apps in Swift und Objective-C für ein US-Unternehmen entwickelt, mit Fokus auf Codequalität und Performance.",
+    "ye_p": "An Koolkat gearbeitet, einer für ihre Zeit recht fortschrittlichen Essenslieferungs-App: Features entwickelt und die Stabilität verbessert.",
+    "ka_p": "Erste iOS-Stelle. Dem jungen Unternehmen geholfen, mehrere Apps zu veröffentlichen, von denen die meisten auf dem lokalen Markt gut ankamen.",
+    "edu_h": "Ausbildung",
+    "msc": "<strong>M.Sc. Digitale Medien</strong><br><span>Universität Bremen, 2020 – 2024</span>",
+    "tools_h": "Tools und Sprachen",
+    "tools3": "Fastlane, Git, UI/UX-Prototyping",
+    "langs": "Englisch (C1), Deutsch (B1), Nepali (Muttersprache)",
+    "wr_h": "Artikel",
+    "wr_intro": "Artikel über Datenstrukturen und Algorithmen in Swift (auf Englisch). Mehr auf <a href=\"https://medium.com/@poudyalhem\">Medium</a>.",
+    "hob_h": "Abseits des Codes",
+    "hob_intro": "Was mich außerhalb der Arbeit neugierig hält.",
+    "hob1b": "Fotografie",
+    "hob1": "Orte und Momente dokumentieren, meist mit einer Kamera statt einem Handy. Aktuell arbeite ich an einem Foto-Zine-Projekt.",
+    "hob2b": "Musik",
+    "hob2": "Demos aufnehmen und Arrangements skizzieren — ein laufendes Projekt, das sich selten fertig anfühlt.",
+    "hob3b": "Radfahren",
+    "hob3": "Frühmorgens an der Weser entlangfahren. Die zuverlässigste Art, den Kopf frei zu bekommen.",
+    "hob4b": "Sprachen",
+    "hob4": "Aktiv am Deutschen arbeiten, langsam die Lücke zwischen B1 und Flüssigkeit schließen.",
+    "ct_h": "Kontakt",
+    "ct_intro": "Ich freue mich über Nachrichten zu iOS-Stellen, SwiftUI-Migrationen oder allem, was du hier gesehen hast.",
+    "foot": "Hem Poudyal, Bremen, Deutschland."
+  }, EN={};
   var els=document.querySelectorAll('[data-i18n]');
   els.forEach(function(el){EN[el.getAttribute('data-i18n')]=el.innerHTML;});
   var btns=document.querySelectorAll('.lang button');
