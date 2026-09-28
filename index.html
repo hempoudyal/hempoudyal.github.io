@@ -46,8 +46,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-off
 .hero .wrap{position:relative;width:100%;padding-top:4rem;padding-bottom:4rem}
 .who{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.25rem}
 .avatar{width:clamp(100px,14vw,140px);height:clamp(100px,14vw,140px);border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);overflow:hidden;flex:none;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
-.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar img{width:100%;height:100%;object-fit:cover;cursor:pointer}
 .avatar img + span{display:none}
+.lightbox{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:2rem;background:rgba(22,34,46,.85)}
+.lightbox[hidden]{display:none}
+.lightbox img{max-width:min(90vw,520px);max-height:85vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.lightbox-close{position:fixed;top:1.25rem;left:1.25rem;width:2.5rem;height:2.5rem;border-radius:50%;border:none;background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.lightbox-close:hover{background:var(--accent-soft);color:var(--accent)}
 .who-info p{margin:0;line-height:1.4}
 .who-info .name{font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,2.5vw,1.35rem);color:var(--ink)}
 .who-info .loc{color:var(--muted);font-size:.95rem}
@@ -118,8 +123,6 @@ h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.2;
 
 /* Contact */
 .contact{text-align:left}
-.contact .mail{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,5vw,3.4rem);letter-spacing:-.02em;color:var(--ink);text-decoration:none;word-break:break-all;display:inline-block;margin:.5rem 0 2rem;border-bottom:3px solid var(--accent)}
-.contact .mail:hover{color:var(--accent)}
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 
 @media (max-width:820px){
@@ -140,21 +143,20 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
   <div class="wrap">
     <div class="who">
       <div class="avatar">
-        <img src="assets/img/imgProfile.jpg" alt="Hem Poudyal" onerror="this.remove()"><span>HP</span>
+        <img src="assets/img/imgProfile.jpg" alt="Hem Poudyal" onerror="this.remove()" tabindex="0" role="button" aria-label="Open larger photo"><span>HP</span>
       </div>
       <div class="who-info">
         <p class="name">Hem Poudyal</p>
         <p data-i18n="loc" class="loc">iOS Engineer in Bremen, Germany</p>
       </div>
     </div>
-    <h1 data-i18n="h1">Making things feel right to use.</h1>
-    <p data-i18n="lede" class="lede">Senior iOS engineer with 10+ years of experience building native apps in Swift and SwiftUI. My background in human-computer interaction shapes how I approach every layer of the work.</p>
+    <p data-i18n="lede" class="lede">iOS Engineer (Senior) with 10+ years of experience building native apps in Swift and SwiftUI. My background in human-computer interaction shapes how I approach every layer of the work.</p>
     <div id="lede-more" hidden>
       <p data-i18n="lede_more">I started writing iOS apps in Kathmandu in 2013 — when Objective-C was still the default. After nearly a decade building apps for companies in Nepal and for international clients, I moved to Germany to study Digital Media at the University of Bremen, focusing on virtual reality and human-computer interaction. That combination of real product experience and research-led education shapes my approach: I care about the gap between what software does and how it feels to use.</p>
     </div>
     <button id="lede-toggle" class="read-more" aria-expanded="false">Read more</button>
     <div class="actions">
-      <a data-i18n="email" class="btn primary" href="mailto:poudyalhem@gmail.com">Email me</a>
+      <a data-i18n="email" class="btn primary js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
       <a class="btn" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
       <a class="btn" href="https://github.com/hempoudyal">GitHub</a>
     </div>
@@ -246,9 +248,10 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
     <h2 data-i18n="hob_h">Beyond the code</h2>
     <p data-i18n="hob_intro" class="intro">What keeps me curious outside of work.</p>
     <ul class="points">
-      <li><b data-i18n="hob1b">Photography</b><p data-i18n="hob1">Documenting places and moments, mostly on a camera rather than a phone. Currently working on a photo zine project.</p></li>
-<li><b data-i18n="hob3b">Cycling</b><p data-i18n="hob3">Early morning rides along the Weser. It's the most reliable way to clear your head in Bremen.</p></li>
-      <li><b data-i18n="hob4b">Languages</b><p data-i18n="hob4">Currently in a B2 German course, working toward fluency.</p></li>
+      <li><b data-i18n="hob1b">Photography</b><p data-i18n="hob1">Photography taught me to notice light, composition and detail — instincts I bring straight into design work. I'm drawn to photo storytelling, capturing people and the life around them, which gives me a wider perspective on existence. I share the more aesthetic shots on <a href="https://unsplash.com/@hempoudyal">Unsplash</a>, free for anyone to use.</p></li>
+<li><b data-i18n="hob3b">Cycling</b><p data-i18n="hob3">I find cycling the best way to navigate a city, and one of the most effective ways to clear my head here in Bremen. In the coming years, I'd like to take on long cross-Europe bike trips.</p></li>
+      <li><b data-i18n="hob4b">Languages</b><p data-i18n="hob4">I'm doing a B2 German course while also trying to enjoy it, aiming for as much fluency as I can get. Next up: a fantasy novel in German, hopefully without Google Translate on standby.</p></li>
+      <li><b data-i18n="hob5b">Travel</b><p data-i18n="hob5">I love exploring new places — local food, culture and everyday rituals often say more than any guidebook. What stays with me longest is meeting people from different backgrounds, each with their own way of seeing the world.</p></li>
     </ul>
   </div>
 </section>
@@ -256,9 +259,9 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 <section id="contact" class="contact">
   <div class="wrap">
     <h2 data-i18n="ct_h">Say hello</h2>
-    <p data-i18n="ct_intro" class="intro" style="margin-bottom:0">Happy to talk about iOS roles, SwiftUI migrations, or anything you saw here.</p>
-    <a class="mail" href="mailto:poudyalhem@gmail.com">poudyalhem@gmail.com</a>
+    <p data-i18n="ct_intro" class="intro">Happy to talk about iOS roles, SwiftUI migrations, or anything you saw here.</p>
     <div class="actions">
+      <a data-i18n="email" class="btn primary js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
       <a class="btn" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
       <a class="btn" href="https://github.com/hempoudyal">GitHub</a>
       <a class="btn" href="https://medium.com/@poudyalhem">Medium</a>
@@ -266,6 +269,13 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
   </div>
 </section>
 </main>
+
+<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo">
+  <button type="button" class="lightbox-close" aria-label="Close">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <img src="" alt="Hem Poudyal">
+</div>
 
 <footer><div data-i18n="foot" class="wrap">Hem Poudyal, Bremen, Germany.</div></footer>
 
@@ -326,10 +336,48 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 </script>
 <script>
 (function(){
+  /* Photo lightbox */
+  var avatarImg=document.querySelector('.avatar img');
+  var lightbox=document.getElementById('lightbox');
+  if(!avatarImg||!lightbox) return;
+  var lbImg=lightbox.querySelector('img');
+  var closeBtn=lightbox.querySelector('.lightbox-close');
+  function open(){
+    lbImg.src=avatarImg.currentSrc||avatarImg.src;
+    lightbox.hidden=false;
+    document.body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function close(){
+    lightbox.hidden=true;
+    document.body.style.overflow='';
+    avatarImg.focus();
+  }
+  avatarImg.addEventListener('click',open);
+  avatarImg.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}
+  });
+  closeBtn.addEventListener('click',close);
+  lightbox.addEventListener('click',function(e){if(e.target===lightbox) close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lightbox.hidden) close();});
+})();
+</script>
+<script>
+(function(){
+  /* Build mailto links on click so the address isn't sitting in the page source */
+  document.querySelectorAll('.js-email').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      window.location.href='mailto:'+a.dataset.user+'@'+a.dataset.domain;
+    });
+  });
+})();
+</script>
+<script>
+(function(){
   var DE={
     "loc": "iOS Engineer in Bremen, Deutschland",
-    "h1": "Apps bauen, die sich richtig anfühlen.",
-    "lede": "Senior iOS Engineer mit über 10 Jahren Erfahrung im Entwickeln nativer Apps in Swift und SwiftUI. Mein Hintergrund in der Mensch-Computer-Interaktion prägt, wie ich an jede Ebene der Arbeit herangehe.",
+    "lede": "iOS Engineer (Senior) mit über 10 Jahren Erfahrung im Entwickeln nativer Apps in Swift und SwiftUI. Mein Hintergrund in der Mensch-Computer-Interaktion prägt, wie ich an jede Ebene der Arbeit herangehe.",
     "lede_more": "Ich habe 2013 in Kathmandu mit dem Entwickeln von iOS-Apps begonnen — damals noch mit Objective-C. Nach fast einem Jahrzehnt, in dem ich Apps für Unternehmen in Nepal und internationale Kunden gebaut habe, bin ich nach Deutschland gezogen, um Digitale Medien an der Universität Bremen zu studieren. Der Schwerpunkt lag auf Virtual Reality und Mensch-Computer-Interaktion. Diese Kombination aus realer Produkterfahrung und forschungsbasierter Ausbildung prägt meinen Ansatz: Ich interessiere mich für die Lücke zwischen dem, was Software tut, und dem, wie es sich anfühlt, sie zu benutzen.",
     "email": "E-Mail schreiben",
     "now_h": "Aktuell bei TAG24 NEWS",
@@ -366,11 +414,13 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
     "hob_h": "Abseits des Codes",
     "hob_intro": "Was mich außerhalb der Arbeit neugierig hält.",
     "hob1b": "Fotografie",
-    "hob1": "Orte und Momente dokumentieren, meist mit einer Kamera statt einem Handy. Aktuell arbeite ich an einem Foto-Zine-Projekt.",
+    "hob1": "Die Fotografie hat mich gelehrt, auf Licht, Komposition und Details zu achten — Instinkte, die direkt in meine Designarbeit einfließen. Am meisten reizt mich das fotografische Erzählen: Menschen und das Leben um sie herum einzufangen gibt mir eine weitere Perspektive auf unsere Existenz. Die ästhetischeren Aufnahmen teile ich auf <a href=\"https://unsplash.com/@hempoudyal\">Unsplash</a>, frei nutzbar für alle.",
 "hob3b": "Radfahren",
-    "hob3": "Frühmorgens an der Weser entlangfahren. Die zuverlässigste Art, den Kopf frei zu bekommen.",
+    "hob3": "Für mich ist Radfahren die beste Art, eine Stadt zu erkunden, und eine der wirksamsten Methoden, hier in Bremen den Kopf freizubekommen. In den kommenden Jahren möchte ich lange Fahrradreisen quer durch Europa unternehmen.",
     "hob4b": "Sprachen",
-    "hob4": "Aktuell im B2-Kurs, auf dem Weg zur Flüssigkeit.",
+    "hob4": "Ich mache gerade einen B2-Deutschkurs und versuche dabei, ihn auch zu genießen, mit dem Ziel, so fließend wie möglich zu werden. Als Nächstes steht ein Fantasy-Roman auf Deutsch an — hoffentlich ohne Google Translate in Reichweite.",
+    "hob5b": "Reisen",
+    "hob5": "Ich liebe es, neue Orte zu entdecken — lokales Essen, Kultur und alltägliche Rituale erzählen oft mehr als jeder Reiseführer. Am meisten bleibt mir die Begegnung mit Menschen aus unterschiedlichen Hintergründen, jeder mit seiner eigenen Sicht auf die Welt.",
     "ct_h": "Kontakt",
     "ct_intro": "Ich freue mich über Nachrichten zu iOS-Stellen, SwiftUI-Migrationen oder allem, was du hier gesehen hast.",
     "foot": "Hem Poudyal, Bremen, Deutschland."
