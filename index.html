@@ -95,6 +95,7 @@ a:hover{text-decoration:underline;text-underline-offset:.18em}
 .avatar.no-img{cursor:default}
 h1{font-size:clamp(2.25rem,2vw + 1.5rem,3.25rem);font-weight:700;line-height:1.08;letter-spacing:-.025em;margin:0}
 .tagline{font-size:clamp(1.125rem,.6vw + 1rem,1.375rem);font-weight:500;line-height:1.25;letter-spacing:-.01em;margin:8px 0 24px}
+.tagline .loc{display:inline-block;margin-top:2px;font-size:17px;font-weight:400;color:var(--label-2)}
 .lede,#lede-more p{font-size:clamp(17px,.5vw + 15px,19px);color:var(--label-2);max-width:40ch;margin:0 auto 12px}
 #lede-more{max-width:44ch}
 #lede-more p{max-width:none}
@@ -110,8 +111,6 @@ h1{font-size:clamp(2.25rem,2vw + 1.5rem,3.25rem);font-weight:700;line-height:1.0
 .more{display:inline-flex;align-items:center;min-height:44px;font-size:17px;color:var(--link);transition:transform .5s var(--spring)}
 .more::after{content:"";width:7px;height:7px;margin-left:6px;border:solid currentColor;border-width:1.6px 1.6px 0 0;transform:rotate(45deg);transition:transform .4s var(--spring)}
 .more:hover::after{transform:translateX(3px) rotate(45deg)}
-.actions .br{display:none}
-@media (max-width:480px){.actions .br{display:block;flex-basis:100%;height:0}.actions{row-gap:4px}}
 
 /* Sections */
 section{padding:clamp(80px,12vw,140px) 0;background:var(--bg)}
@@ -256,15 +255,13 @@ footer .wrap{padding-top:20px;border-top:1px solid var(--sep)}
       <img src="assets/img/imgProfile.jpg" alt="Hem Poudyal" width="148" height="148" fetchpriority="high" onerror="this.parentNode.classList.add('no-img');this.remove()"><span aria-hidden="true">HP</span>
     </button>
     <h1>Hem Poudyal</h1>
-    <p data-i18n="loc" class="tagline">iOS Engineer in Bremen, Germany</p>
+    <p data-i18n="loc" class="tagline">iOS Engineer<br><span class="loc">Bremen, Germany</span></p>
     <p data-i18n="lede" class="lede">iOS Engineer with 10+ years of experience building native apps in Swift and SwiftUI. My background in human-computer interaction shapes how I approach every layer of the work.</p>
     <div id="lede-more" hidden>
       <p data-i18n="lede_more">I started writing iOS apps in Kathmandu in 2013 — when Objective-C was still the default. After nearly a decade building apps for companies in Nepal and for international clients, I moved to Germany to study Digital Media at the University of Bremen, focusing on virtual reality and human-computer interaction. That combination of real product experience and research-led education shapes my approach: I care about the gap between what software does and how it feels to use.</p>
     </div>
     <button id="lede-toggle" class="read-more" aria-expanded="false" aria-controls="lede-more">Read more</button>
     <div class="actions">
-      <a data-i18n="email" class="btn js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
-      <span class="br" aria-hidden="true"></span>
       <a class="more" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
       <a class="more" href="https://github.com/hempoudyal">GitHub</a>
     </div>
@@ -382,7 +379,6 @@ footer .wrap{padding-top:20px;border-top:1px solid var(--sep)}
     <p data-i18n="ct_intro" class="intro">Happy to talk about iOS roles, SwiftUI migrations, or anything you saw here.</p>
     <div class="actions">
       <a data-i18n="email" class="btn js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
-      <span class="br" aria-hidden="true"></span>
       <a class="more" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
       <a class="more" href="https://github.com/hempoudyal">GitHub</a>
       <a class="more" href="https://medium.com/@poudyalhem">Medium</a>
@@ -571,7 +567,7 @@ footer .wrap{padding-top:20px;border-top:1px solid var(--sep)}
     "nav_exp": "Erfahrung",
     "nav_writing": "Artikel",
     "nav_contact": "Kontakt",
-    "loc": "iOS Engineer in Bremen, Deutschland",
+    "loc": "iOS Engineer<br><span class=\"loc\">Bremen, Deutschland</span>",
     "lede": "iOS Engineer mit über 10 Jahren Erfahrung im Entwickeln nativer Apps in Swift und SwiftUI. Mein Hintergrund in der Mensch-Computer-Interaktion prägt, wie ich an jede Ebene der Arbeit herangehe.",
     "lede_more": "Ich habe 2013 in Kathmandu mit dem Entwickeln von iOS-Apps begonnen — damals noch mit Objective-C. Nach fast einem Jahrzehnt, in dem ich Apps für Unternehmen in Nepal und internationale Kunden gebaut habe, bin ich nach Deutschland gezogen, um Digitale Medien an der Universität Bremen zu studieren. Der Schwerpunkt lag auf Virtual Reality und Mensch-Computer-Interaktion. Diese Kombination aus realer Produkterfahrung und forschungsbasierter Ausbildung prägt meinen Ansatz: Ich interessiere mich für die Lücke zwischen dem, was Software tut, und dem, wie es sich anfühlt, sie zu benutzen.",
     "email": "E-Mail schreiben",
