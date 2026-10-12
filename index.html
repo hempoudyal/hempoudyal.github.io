@@ -5,181 +5,296 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hem Poudyal · iOS Engineer</title>
 <meta name="description" content="Hem Poudyal is a senior iOS engineer in Bremen, Germany with 10+ years of experience building native apps in Swift and SwiftUI.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2316222E'/><text x='16' y='22' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='13' fill='%236CC6CC'>HP</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231d1d1f'/><text x='16' y='21.5' text-anchor='middle' font-family='-apple-system,system-ui,sans-serif' font-weight='600' font-size='13' fill='%23f5f5f7'>HP</text></svg>">
+<script>
+  /* Motion is opt-in: reduced-motion and no-JS visitors get the final, fully visible layout */
+  if(window.matchMedia('(prefers-reduced-motion: no-preference)').matches) document.documentElement.classList.add('motion');
+</script>
 <style>
 :root{
-  --bg:#F2F5F7; --surface:#FFFFFF; --ink:#16222E; --muted:#56687A;
-  --line:#C9D5DE; --contour:#AFC2D0; --accent:#1F6F78; --accent-soft:#DCEDEE;
-  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --body:"Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#fff; --bg-alt:#f5f5f7; --tile:#f5f5f7; --tile-alt:#fff;
+  --label:#1d1d1f; --label-2:#6e6e73; --label-3:#86868b;
+  --sep:rgba(0,0,0,.12); --accent:#0071e3; --accent-hover:#0077ed; --link:#0066cc;
+  --nav-bg:rgba(255,255,255,.72); --frame:#1d1d1f; --frame-edge:rgba(0,0,0,.08);
+  --font:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Segoe UI",Arial,sans-serif;
+  --nav-h:48px;
+  --spring:cubic-bezier(.22,1,.36,1); --spring-snappy:cubic-bezier(.3,1.3,.5,1); --dur:.7s;
   color-scheme:light dark;
+}
+@supports (transition-timing-function:linear(0,1)){
+  :root{
+    --spring:linear(0,.0037,.0142,.031,.0534,.0804,.1108,.1438,.1784,.2135,.2484,.3145,.3746,.4283,.4755,.5562,.6215,.6726,.7112,.7735,.8196,.854,.8793,.9185,.9458,.9647,.9779,.9921,1);
+    --spring-snappy:linear(0,.012,.049,.107,.185,.278,.383,.493,.601,.702,.791,.865,.924,.967,.995,1.013,1.019,1.016,1.009,1.003,1);
+  }
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0E1821; --surface:#15222D; --ink:#E4ECF1; --muted:#93A6B5;
-    --line:#26394A; --contour:#2E4659; --accent:#6CC6CC; --accent-soft:#17333A;
+    --bg:#000; --bg-alt:#161617; --tile:#1c1c1e; --tile-alt:#242426;
+    --label:#f5f5f7; --label-2:#a1a1a6; --label-3:#86868b;
+    --sep:rgba(255,255,255,.15); --link:#2997ff;
+    --nav-bg:rgba(22,22,23,.72); --frame:#2c2c2e; --frame-edge:rgba(255,255,255,.12);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0E1821; --surface:#15222D; --ink:#E4ECF1; --muted:#93A6B5;
-  --line:#26394A; --contour:#2E4659; --accent:#6CC6CC; --accent-soft:#17333A;
+  --bg:#000; --bg-alt:#161617; --tile:#1c1c1e; --tile-alt:#242426;
+  --label:#f5f5f7; --label-2:#a1a1a6; --label-3:#86868b;
+  --sep:rgba(255,255,255,.15); --link:#2997ff;
+  --nav-bg:rgba(22,22,23,.72); --frame:#2c2c2e; --frame-edge:rgba(255,255,255,.12);
 }
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+@media (prefers-contrast:more){
+  :root{--label-2:#3a3a3c; --label-3:#48484a; --sep:rgba(0,0,0,.35)}
+  :root[data-theme="dark"]{--label-2:#d1d1d6; --label-3:#c7c7cc; --sep:rgba(255,255,255,.4)}
+}
+@media (prefers-contrast:more) and (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--label-2:#d1d1d6; --label-3:#c7c7cc; --sep:rgba(255,255,255,.4)}
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:var(--nav-h);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--label);font-family:var(--font);font-size:17px;line-height:1.47;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 img{max-width:100%;display:block}
-a{color:var(--accent);text-underline-offset:.2em}
-a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+p{text-wrap:pretty}
+h1,h2,h3{text-wrap:balance}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:.18em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(clamp(20px,4vw,40px),env(safe-area-inset-left));padding-right:max(clamp(20px,4vw,40px),env(safe-area-inset-right))}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;padding:10px 16px;border-radius:999px;background:var(--label);color:var(--bg);font-size:14px;font-weight:600}
+.skip:focus{top:8px}
+
+/* Global nav — transparent at top, frosted once the page scrolls */
+.gn{position:sticky;top:0;z-index:100;height:calc(var(--nav-h) + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);border-bottom:1px solid transparent;transition:background-color .3s ease,border-color .3s ease,-webkit-backdrop-filter .3s ease,backdrop-filter .3s ease}
+.gn.is-scrolled{background:var(--nav-bg);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom-color:var(--sep)}
+.gn-inner{height:var(--nav-h);display:flex;align-items:center;gap:24px}
+.gn-name{font-size:17px;font-weight:600;letter-spacing:-.02em;color:var(--label);opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .3s ease,transform .5s var(--spring),visibility 0s .3s}
+.gn.is-scrolled .gn-name{opacity:1;visibility:visible;transform:none;transition:opacity .3s ease,transform .5s var(--spring),visibility 0s}
+.gn-name:hover{text-decoration:none}
+.gn-links{display:flex;gap:4px;margin:0 0 0 auto;padding:0;list-style:none}
+.gn-links a{display:flex;align-items:center;height:44px;padding:0 10px;font-size:14px;color:var(--label);opacity:.8;transition:opacity .2s}
+.gn-links a:hover{opacity:1;text-decoration:none}
+.lang{display:flex;padding:2px;border-radius:999px;background:var(--bg-alt)}
+.lang button{font:600 12px/1 var(--font);min-width:40px;height:28px;padding:0 10px;border:0;border-radius:999px;background:transparent;color:var(--label-2);cursor:pointer;transition:background-color .25s ease,color .25s ease,box-shadow .25s ease}
+.lang button[aria-pressed="true"]{background:var(--bg);color:var(--label);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.gn.is-scrolled .lang{background:var(--sep)}
+@media (prefers-reduced-transparency:reduce){.gn.is-scrolled{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
 
 /* Hero */
-.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero svg.contours{position:absolute;right:-12%;top:50%;transform:translateY(-50%);width:min(900px,95vw);height:auto;pointer-events:none}
-.contours path{fill:none;stroke:var(--contour);stroke-width:1.1}
-.contours path.index{stroke:var(--accent);stroke-width:1.6;opacity:.7}
-.hero .wrap{position:relative;width:100%;padding-top:4rem;padding-bottom:4rem}
-.who{display:flex;align-items:center;gap:1.5rem;margin-bottom:2.25rem}
-.avatar{width:clamp(100px,14vw,140px);height:clamp(100px,14vw,140px);border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);overflow:hidden;flex:none;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
-.avatar img{width:100%;height:100%;object-fit:cover;cursor:pointer}
+.hero{display:flex;align-items:center;min-height:min(calc(100svh - var(--nav-h)),860px);padding:40px 0 96px;text-align:center}
+.hero-inner{width:100%;display:flex;flex-direction:column;align-items:center;will-change:transform}
+.avatar{width:clamp(112px,14vw,148px);aspect-ratio:1;margin:0 0 28px;padding:0;border:0;border-radius:50%;overflow:hidden;background:var(--bg-alt);color:var(--label-2);font:600 2rem/1 var(--font);display:grid;place-items:center;cursor:zoom-in;transition:transform .5s var(--spring)}
+.avatar:hover{transform:scale(1.03)}
+.avatar:active{transform:scale(.97);transition-duration:.25s;transition-timing-function:var(--spring-snappy)}
+.avatar img{width:100%;height:100%;object-fit:cover}
 .avatar img + span{display:none}
-.lightbox{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:2rem;background:rgba(22,34,46,.85)}
-.lightbox[hidden]{display:none}
-.lightbox img{max-width:min(90vw,520px);max-height:85vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
-.lightbox-close{position:fixed;top:1.25rem;left:1.25rem;width:2.5rem;height:2.5rem;border-radius:50%;border:none;background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
-.lightbox-close:hover{background:var(--accent-soft);color:var(--accent)}
-.who-info p{margin:0;line-height:1.4}
-.who-info .name{font-family:var(--display);font-weight:700;font-size:clamp(1.1rem,2.5vw,1.35rem);color:var(--ink)}
-.who-info .loc{color:var(--muted);font-size:.95rem}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,7.5vw,5.6rem);line-height:.98;letter-spacing:-.025em;margin:0 0 1.5rem;max-width:14ch;font-variation-settings:"opsz" 96}
-.lede{font-size:clamp(1.05rem,2vw,1.25rem);max-width:36ch;color:var(--muted);margin:0 0 .75rem}
-.read-more{display:inline-block;background:none;border:none;padding:0;margin:0 0 2rem;font:600 1rem var(--body);color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
-.read-more:hover{opacity:.75}
-#lede-more{margin-bottom:1.5rem}
-#lede-more p{font-size:clamp(1.05rem,2vw,1.2rem);color:var(--muted);max-width:38ch;margin:0 0 .5rem}
-.actions{display:flex;flex-wrap:wrap;gap:.75rem}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.25rem;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);background:transparent;transition:background .15s,color .15s}
-.btn:hover{background:var(--ink);color:var(--bg)}
-.btn.primary{background:var(--ink);color:var(--bg)}
-.btn.primary:hover{background:var(--accent);border-color:var(--accent)}
-
-.lang{position:absolute;z-index:2;top:1.25rem;right:clamp(1.25rem,4vw,2.5rem);display:flex;padding:3px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
-.lang button{font:600 .85rem/1 var(--body);padding:.5rem .8rem;border:0;border-radius:999px;background:transparent;color:var(--muted);cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.avatar.no-img{cursor:default}
+h1{font-size:clamp(3rem,5.6vw + 1.2rem,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-.03em;margin:0}
+.tagline{font-size:clamp(1.3rem,1vw + 1rem,1.75rem);font-weight:500;line-height:1.2;letter-spacing:-.01em;margin:10px 0 28px}
+.lede,#lede-more p{font-size:clamp(17px,.5vw + 15px,19px);color:var(--label-2);max-width:40ch;margin:0 auto 12px}
+#lede-more{max-width:44ch}
+#lede-more p{max-width:none}
+.motion #lede-more:not([hidden]){animation:rise .6s var(--spring) both}
+.read-more{display:inline-flex;align-items:center;gap:4px;min-height:44px;margin:0 0 20px;padding:0 4px;border:0;background:none;font:400 17px var(--font);letter-spacing:-.01em;color:var(--link);cursor:pointer}
+.read-more::after{content:"";width:7px;height:7px;margin:-3px 0 0 4px;border:solid currentColor;border-width:0 1.6px 1.6px 0;transform:rotate(45deg);transition:transform .5s var(--spring)}
+.read-more[aria-expanded="true"]::after{transform:translateY(4px) rotate(-135deg)}
+.read-more:hover{text-decoration:underline;text-underline-offset:.18em}
+.actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 28px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--accent);color:#fff;font-size:17px;font-weight:400;transition:background-color .2s ease,transform .5s var(--spring)}
+.btn:hover{background:var(--accent-hover);text-decoration:none}
+.btn:active,.more:active{transform:scale(.97);transition-duration:.25s;transition-timing-function:var(--spring-snappy)}
+.more{display:inline-flex;align-items:center;min-height:44px;font-size:17px;color:var(--link);transition:transform .5s var(--spring)}
+.more::after{content:"";width:7px;height:7px;margin-left:6px;border:solid currentColor;border-width:1.6px 1.6px 0 0;transform:rotate(45deg);transition:transform .4s var(--spring)}
+.more:hover::after{transform:translateX(3px) rotate(45deg)}
+.actions .br{display:none}
+@media (max-width:480px){.actions .br{display:block;flex-basis:100%;height:0}.actions{row-gap:4px}}
 
 /* Sections */
-section{padding:clamp(4rem,9vw,7rem) 0;border-bottom:1px solid var(--line)}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 .75rem}
-.intro{color:var(--muted);max-width:56ch;margin:0 0 3rem}
-.since{margin:-.25rem 0 1rem;color:var(--accent);font-weight:600}
-h3{font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.2;margin:0 0 .4rem}
+section{padding:clamp(80px,12vw,140px) 0;background:var(--bg)}
+section.alt{background:var(--bg-alt)}
+section.alt{--tile:var(--tile-alt)}
+.eyebrow{margin:0 0 8px;font-size:clamp(17px,1vw + 12px,21px);font-weight:600;color:var(--label-2)}
+h2{font-size:clamp(2.25rem,2.6vw + 1.2rem,3.5rem);font-weight:600;line-height:1.08;letter-spacing:-.025em;margin:0 0 16px}
+.intro{font-size:clamp(17px,.5vw + 15px,19px);color:var(--label-2);max-width:52ch;margin:0 0 48px}
+h3{font-size:1.3125rem;font-weight:600;line-height:1.2;letter-spacing:-.01em;margin:0 0 8px}
 
-/* Now: TAG24 */
-.now{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
-.shift{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.9rem;margin:0 0 2rem;padding:1.4rem;background:var(--surface);border:1px solid var(--line);border-radius:18px}
-.shift span{font-family:var(--display);font-weight:600;font-size:1.05rem;line-height:1.25}
-.shift .from{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--contour);text-decoration-thickness:2px}
-.shift svg{width:34px;height:14px;color:var(--accent)}
+/* Now: TAG24 — one pinned scene */
+.now{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,7vw,96px);align-items:center;width:100%}
+.now .intro{margin-bottom:32px}
+.shift{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0 0 20px;font-size:1.3125rem;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.shift .from{position:relative;color:var(--label-3)}
+.shift .from::after{content:"";position:absolute;left:0;right:0;top:55%;height:2px;border-radius:2px;background:currentColor;transform-origin:left center;transform:scaleX(var(--strike,1))}
+.shift svg{width:28px;height:12px;flex:none;color:var(--label-3)}
+.shift .to{opacity:var(--to,1)}
+.device{--w:clamp(220px,24vw,290px);position:relative;width:var(--w);margin:0 auto;padding:calc(var(--w)*.035);border-radius:calc(var(--w)*.165);background:var(--frame);box-shadow:0 0 0 1px var(--frame-edge),0 50px 80px -40px rgba(0,0,0,.45);will-change:transform}
+.device-screen{position:relative;aspect-ratio:1179/2556;border-radius:calc(var(--w)*.135);overflow:hidden;background:#000}
+.device-screen::before{content:"";position:absolute;z-index:2;top:calc(var(--w)*.03);left:50%;width:calc(var(--w)*.3);height:calc(var(--w)*.088);border-radius:999px;background:#000;transform:translateX(-50%)}
+.device img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.device .shot-2{opacity:var(--shot2,0)}
+.no-device .device{display:none}
+.no-device .now{grid-template-columns:1fr}
 .points{list-style:none;padding:0;margin:0}
-.points li{padding:1.1rem 0;border-top:1px solid var(--line)}
-.points li:last-child{border-bottom:1px solid var(--line)}
-.points b{display:block;font-weight:600;margin-bottom:.15rem}
-.points p{margin:0;color:var(--muted)}
+.points.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:clamp(56px,8vw,96px)}
+.points.two li{padding:32px;border-radius:24px;background:var(--tile)}
+.points p{margin:0;color:var(--label-2)}
+@media (min-width:821px) and (min-height:640px) and (prefers-reduced-motion:no-preference){
+  .scene-track{height:190vh}
+  .scene-sticky{position:sticky;top:var(--nav-h);min-height:calc(100vh - var(--nav-h));display:flex;align-items:center}
+  .no-device .scene-track{height:auto}
+  .no-device .scene-sticky{position:static;min-height:0}
+}
 
 /* Research */
-.research{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
-.research .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.75rem}
-.research .card p{color:var(--muted);margin:.25rem 0 1rem}
-.research .note{margin:0;align-self:center;color:var(--muted);font-size:1.15rem;max-width:36ch}
+.research{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
+.card{padding:clamp(28px,4vw,40px);border-radius:24px;background:var(--tile)}
+.card p{color:var(--label-2);margin:0 0 12px}
+.card .more{margin-bottom:-10px}
+.note{margin:0;font-size:clamp(1.3rem,1vw + 1rem,1.75rem);font-weight:500;line-height:1.25;letter-spacing:-.015em;max-width:24ch}
 
-/* Timeline */
+/* Experience */
 .timeline{list-style:none;margin:0;padding:0}
-.timeline li{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--line)}
-.timeline li:last-child{border-bottom:1px solid var(--line)}
-.timeline time{font-family:var(--display);font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
-.timeline .role{font-weight:600}
-.timeline .org{color:var(--muted)}
-.timeline p{margin:.4rem 0 0;color:var(--muted);max-width:60ch}
-
-.twocol{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);margin-top:4rem}
-.plain{list-style:none;padding:0;margin:0}
-.plain li{padding:.55rem 0;border-top:1px solid var(--line)}
-.plain li span{color:var(--muted)}
+.timeline li{display:grid;grid-template-columns:10rem 1fr;gap:24px;padding:28px 0;border-top:1px solid var(--sep)}
+.timeline li:last-child{border-bottom:1px solid var(--sep)}
+.timeline time{color:var(--label-3);font-weight:600;font-variant-numeric:tabular-nums}
+.timeline .role{font-size:1.3125rem;font-weight:600;letter-spacing:-.01em}
+.timeline .org{color:var(--label-2)}
+.timeline p{margin:8px 0 0;color:var(--label-2);max-width:60ch}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);margin-top:clamp(56px,8vw,96px)}
+.plain{list-style:none;padding:0;margin:16px 0 0}
+.plain li{padding:12px 0;border-top:1px solid var(--sep)}
+.plain li span{color:var(--label-2)}
 .plain li strong{font-weight:600}
 
 /* Writing */
 .posts{list-style:none;padding:0;margin:0}
-.posts li{border-top:1px solid var(--line)}
-.posts li:last-child{border-bottom:1px solid var(--line)}
-.posts a{display:flex;justify-content:space-between;gap:1rem;padding:1.15rem 0;text-decoration:none;color:var(--ink)}
-.posts a:hover .t{color:var(--accent);text-decoration:underline;text-underline-offset:.2em}
-.posts .t{font-weight:500}
-.posts .d{color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.posts li{border-top:1px solid var(--sep)}
+.posts li:last-child{border-bottom:1px solid var(--sep)}
+.posts a{display:flex;align-items:center;gap:16px;min-height:64px;padding:16px 0;color:var(--label)}
+.posts a:hover{text-decoration:none}
+.posts .t{flex:1;font-weight:500;transition:color .2s}
+.posts a:hover .t{color:var(--link)}
+.posts .d{color:var(--label-3);white-space:nowrap;font-variant-numeric:tabular-nums}
+.posts a::after{content:"";flex:none;width:8px;height:8px;margin-right:4px;border:solid var(--label-3);border-width:1.6px 1.6px 0 0;transform:rotate(45deg);transition:transform .4s var(--spring),border-color .2s}
+.posts a:hover::after{transform:translateX(3px) rotate(45deg);border-color:var(--link)}
+
+/* Beyond the code — the page's one bento */
+.bento{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.bento li{padding:clamp(28px,4vw,40px);border-radius:24px;background:var(--tile)}
+.bento li:nth-child(1),.bento li:nth-child(4){grid-column:span 7}
+.bento li:nth-child(2),.bento li:nth-child(3){grid-column:span 5}
+.bento p{margin:0;color:var(--label-2)}
 
 /* Contact */
-.contact{text-align:left}
-footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
+.contact{text-align:center}
+.contact .intro{margin-left:auto;margin-right:auto}
+.contact h2{font-size:clamp(3rem,5.6vw + 1.2rem,5rem);font-weight:700;letter-spacing:-.03em}
+
+footer{padding:24px 0 calc(32px + env(safe-area-inset-bottom));background:var(--bg-alt);color:var(--label-3);font-size:12px;letter-spacing:0}
+footer .wrap{padding-top:20px;border-top:1px solid var(--sep)}
+
+/* Lightbox — native dialog gives focus trap + Esc */
+.lightbox{width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:24px;border:0;background:transparent;overflow:hidden}
+.lightbox[open]{display:grid;place-items:center}
+.lightbox::backdrop{background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+.lightbox img{max-width:min(88vw,520px);max-height:82vh;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.lightbox-close{position:fixed;top:max(16px,env(safe-area-inset-top));right:max(16px,env(safe-area-inset-right));width:44px;height:44px;border-radius:50%;border:0;background:rgba(120,120,128,.32);color:#fff;display:grid;place-items:center;cursor:pointer;-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);transition:background-color .2s,transform .4s var(--spring)}
+.lightbox-close:hover{background:rgba(120,120,128,.5)}
+.lightbox-close:active{transform:scale(.92)}
+.motion .lightbox[open] img{animation:zoom-in .55s var(--spring) both}
+.motion .lightbox[open]::backdrop{animation:fade .3s ease both}
+
+/* Reveals */
+.motion .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform var(--dur) var(--spring);transition-delay:var(--d,0s)}
+.motion .reveal.in{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes zoom-in{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
 
 @media (max-width:820px){
-  .now,.research,.twocol{grid-template-columns:1fr}
-  .timeline li{grid-template-columns:1fr;gap:.25rem}
-  .hero svg.contours{right:-45%;opacity:.55}
+  .now,.research,.twocol,.points.two{grid-template-columns:1fr}
+  .now .device{margin-top:16px}
+  .timeline li{grid-template-columns:1fr;gap:4px}
+  .bento{grid-template-columns:1fr}
+  .bento li,.bento li:nth-child(n){grid-column:auto}
+}
+@media (max-width:734px){
+  .gn-links{display:none}
+  .lang{margin-left:auto}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.gn,.lightbox,.read-more{display:none}.motion .reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-<header class="hero">
-  <div class="lang" role="group" aria-label="Language">
-    <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button>
-  </div>
-  <svg class="contours" viewBox="0 0 800 700" aria-hidden="true"></svg>
-  <div class="wrap">
-    <div class="who">
-      <div class="avatar">
-        <img src="assets/img/imgProfile.jpg" alt="Hem Poudyal" onerror="this.remove()" tabindex="0" role="button" aria-label="Open larger photo"><span>HP</span>
-      </div>
-      <div class="who-info">
-        <p class="name">Hem Poudyal</p>
-        <p data-i18n="loc" class="loc">iOS Engineer in Bremen, Germany</p>
-      </div>
+<nav class="gn" aria-label="Primary">
+  <div class="wrap gn-inner">
+    <a class="gn-name" href="#top">Hem Poudyal</a>
+    <ul class="gn-links">
+      <li><a href="#now" data-i18n="nav_work">Work</a></li>
+      <li><a href="#research" data-i18n="nav_research">Research</a></li>
+      <li><a href="#experience" data-i18n="nav_exp">Experience</a></li>
+      <li><a href="#writing" data-i18n="nav_writing">Writing</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="de" aria-pressed="false">DE</button>
     </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-inner">
+    <button type="button" class="avatar" aria-label="Open larger photo">
+      <img src="assets/img/imgProfile.jpg" alt="Hem Poudyal" width="148" height="148" fetchpriority="high" onerror="this.parentNode.classList.add('no-img');this.remove()"><span aria-hidden="true">HP</span>
+    </button>
+    <h1>Hem Poudyal</h1>
+    <p data-i18n="loc" class="tagline">iOS Engineer in Bremen, Germany</p>
     <p data-i18n="lede" class="lede">iOS Engineer (Senior) with 10+ years of experience building native apps in Swift and SwiftUI. My background in human-computer interaction shapes how I approach every layer of the work.</p>
     <div id="lede-more" hidden>
       <p data-i18n="lede_more">I started writing iOS apps in Kathmandu in 2013 — when Objective-C was still the default. After nearly a decade building apps for companies in Nepal and for international clients, I moved to Germany to study Digital Media at the University of Bremen, focusing on virtual reality and human-computer interaction. That combination of real product experience and research-led education shapes my approach: I care about the gap between what software does and how it feels to use.</p>
     </div>
-    <button id="lede-toggle" class="read-more" aria-expanded="false">Read more</button>
+    <button id="lede-toggle" class="read-more" aria-expanded="false" aria-controls="lede-more">Read more</button>
     <div class="actions">
-      <a data-i18n="email" class="btn primary js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
-      <a class="btn" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
-      <a class="btn" href="https://github.com/hempoudyal">GitHub</a>
+      <a data-i18n="email" class="btn js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
+      <span class="br" aria-hidden="true"></span>
+      <a class="more" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
+      <a class="more" href="https://github.com/hempoudyal">GitHub</a>
     </div>
   </div>
 </header>
 
-<main>
-<section id="now">
-  <div class="wrap now">
-    <div>
-      <h2 data-i18n="now_h">Currently at TAG24 NEWS</h2>
-      <p data-i18n="since" class="since">Since 2021</p>
-      <p data-i18n="now_intro" class="intro">At TAG24 NEWS since 2021, starting part-time during a Master's degree and joining full-time in 2023. The team migrated legacy views to SwiftUI and native components — keeping the app running in readers' hands throughout, no big-bang rewrite.</p>
-      <div class="shift" aria-label="From legacy UIKit code to modern SwiftUI">
-        <span data-i18n="from" class="from">Legacy code, custom UI</span>
-        <svg viewBox="0 0 34 14" fill="none"><path d="M1 7h30M25 1l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span data-i18n="to">SwiftUI, native components</span>
+<main id="main">
+<section id="now" class="alt">
+  <div class="scene-track">
+    <div class="scene-sticky">
+      <div class="wrap now">
+        <div>
+          <p data-i18n="since" class="eyebrow">Since 2021</p>
+          <h2 data-i18n="now_h">Currently at TAG24 NEWS</h2>
+          <p data-i18n="now_intro" class="intro">At TAG24 NEWS since 2021, starting part-time during a Master's degree and joining full-time in 2023. The team migrated legacy views to SwiftUI and native components — keeping the app running in readers' hands throughout, no big-bang rewrite.</p>
+          <p class="shift" aria-label="From legacy UIKit code to modern SwiftUI">
+            <span data-i18n="from" class="from">Legacy code, custom UI</span>
+            <svg viewBox="0 0 28 12" fill="none" aria-hidden="true"><path d="M1 6h24M20 1l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="to" class="to">SwiftUI, native components</span>
+          </p>
+          <a data-i18n="store" class="more" href="https://apps.apple.com/app/id1349810082">View on the App Store</a>
+        </div>
+        <figure class="device" aria-label="TAG24 NEWS app on iPhone">
+          <div class="device-screen">
+            <img class="shot-1" src="assets/img/tag24-1.png" alt="TAG24 NEWS app home feed" width="1179" height="2556" loading="lazy" decoding="async" onerror="this.closest('section').classList.add('no-device')">
+            <img class="shot-2" src="assets/img/tag24-2.png" alt="" width="1179" height="2556" loading="lazy" decoding="async" onerror="this.remove()">
+          </div>
+        </figure>
       </div>
-      <a data-i18n="store" class="btn" href="https://apps.apple.com/app/id1349810082">View on the App Store</a>
     </div>
-    <ul class="points">
-      <li><b data-i18n="p1b">Migrated legacy views to SwiftUI</b><p data-i18n="p1">Legacy UIKit views were rebuilt as modern SwiftUI components — easier to maintain, faster to extend, and deployed incrementally without feature freezes.</p></li>
-      <li><b data-i18n="p2b">Native components first</b><p data-i18n="p2">Custom-built UI was replaced with system components, so the app follows iOS conventions and picks up platform improvements for free.</p></li>
+  </div>
+  <div class="wrap">
+    <ul class="points two">
+      <li><h3 data-i18n="p1b">Migrated legacy views to SwiftUI</h3><p data-i18n="p1">Legacy UIKit views were rebuilt as modern SwiftUI components — easier to maintain, faster to extend, and deployed incrementally without feature freezes.</p></li>
+      <li><h3 data-i18n="p2b">Native components first</h3><p data-i18n="p2">Custom-built UI was replaced with system components, so the app follows iOS conventions and picks up platform improvements for free.</p></li>
     </ul>
   </div>
 </section>
@@ -192,14 +307,14 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
       <div class="card">
         <h3 data-i18n="vr_h">Locomotion study in VR</h3>
         <p data-i18n="vr_p">My Master's project: a study of how people move through a virtual environment built as a digital twin, and which locomotion techniques feel natural.</p>
-        <a data-i18n="vr_link" href="https://gitlab.informatik.uni-bremen.de/poudyhem/digitaltwin-vr">View the project on GitLab</a>
+        <a data-i18n="vr_link" class="more" href="https://gitlab.informatik.uni-bremen.de/poudyhem/digitaltwin-vr">View the project on GitLab</a>
       </div>
       <p data-i18n="note" class="note">The study taught me to look closely at how people use things. I try to bring that into my iOS work, even in small details.</p>
     </div>
   </div>
 </section>
 
-<section id="experience">
+<section id="experience" class="alt">
   <div class="wrap">
     <h2 data-i18n="exp_h">Experience</h2>
     <p data-i18n="exp_intro" class="intro">From the first Objective-C apps in Kathmandu to building a news app in Germany.</p>
@@ -243,15 +358,15 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
   </div>
 </section>
 
-<section id="interests">
+<section id="interests" class="alt">
   <div class="wrap">
     <h2 data-i18n="hob_h">Beyond the code</h2>
     <p data-i18n="hob_intro" class="intro">What keeps me curious outside of work.</p>
-    <ul class="points">
-      <li><b data-i18n="hob1b">Photography</b><p data-i18n="hob1">Photography taught me to notice light, composition and detail — instincts I bring straight into design work. I'm drawn to photo storytelling, capturing people and the life around them, which gives me a wider perspective on existence. I share the more aesthetic shots on <a href="https://unsplash.com/@hempoudyal">Unsplash</a>, free for anyone to use.</p></li>
-<li><b data-i18n="hob3b">Cycling</b><p data-i18n="hob3">I find cycling the best way to navigate a city, and one of the most effective ways to clear my head here in Bremen. In the coming years, I'd like to take on long cross-Europe bike trips.</p></li>
-      <li><b data-i18n="hob4b">Languages</b><p data-i18n="hob4">I'm doing a B2 German course while also trying to enjoy it, aiming for as much fluency as I can get. Next up: a fantasy novel in German, hopefully without Google Translate on standby.</p></li>
-      <li><b data-i18n="hob5b">Travel</b><p data-i18n="hob5">I love exploring new places — local food, culture and everyday rituals often say more than any guidebook. What stays with me longest is meeting people from different backgrounds, each with their own way of seeing the world.</p></li>
+    <ul class="bento">
+      <li><h3 data-i18n="hob1b">Photography</h3><p data-i18n="hob1">Photography taught me to notice light, composition and detail — instincts I bring straight into design work. I'm drawn to photo storytelling, capturing people and the life around them, which gives me a wider perspective on existence. I share the more aesthetic shots on <a href="https://unsplash.com/@hempoudyal">Unsplash</a>, free for anyone to use.</p></li>
+      <li><h3 data-i18n="hob3b">Cycling</h3><p data-i18n="hob3">I find cycling the best way to navigate a city, and one of the most effective ways to clear my head here in Bremen. In the coming years, I'd like to take on long cross-Europe bike trips.</p></li>
+      <li><h3 data-i18n="hob4b">Languages</h3><p data-i18n="hob4">I'm doing a B2 German course while also trying to enjoy it, aiming for as much fluency as I can get. Next up: a fantasy novel in German, hopefully without Google Translate on standby.</p></li>
+      <li><h3 data-i18n="hob5b">Travel</h3><p data-i18n="hob5">I love exploring new places — local food, culture and everyday rituals often say more than any guidebook. What stays with me longest is meeting people from different backgrounds, each with their own way of seeing the world.</p></li>
     </ul>
   </div>
 </section>
@@ -261,55 +376,100 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
     <h2 data-i18n="ct_h">Say hello</h2>
     <p data-i18n="ct_intro" class="intro">Happy to talk about iOS roles, SwiftUI migrations, or anything you saw here.</p>
     <div class="actions">
-      <a data-i18n="email" class="btn primary js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
-      <a class="btn" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
-      <a class="btn" href="https://github.com/hempoudyal">GitHub</a>
-      <a class="btn" href="https://medium.com/@poudyalhem">Medium</a>
+      <a data-i18n="email" class="btn js-email" href="#" data-user="poudyalhem" data-domain="gmail.com">Email me</a>
+      <span class="br" aria-hidden="true"></span>
+      <a class="more" href="https://www.linkedin.com/in/hempoudyal/">LinkedIn</a>
+      <a class="more" href="https://github.com/hempoudyal">GitHub</a>
+      <a class="more" href="https://medium.com/@poudyalhem">Medium</a>
     </div>
   </div>
 </section>
 </main>
 
-<div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo">
+<footer><div data-i18n="foot" class="wrap">Hem Poudyal, Bremen, Germany.</div></footer>
+
+<dialog id="lightbox" class="lightbox" aria-label="Photo">
   <button type="button" class="lightbox-close" aria-label="Close">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <img src="" alt="Hem Poudyal">
-</div>
-
-<footer><div data-i18n="foot" class="wrap">Hem Poudyal, Bremen, Germany.</div></footer>
+</dialog>
 
 <script>
 (function(){
-  var svg=document.querySelector('.contours'); if(!svg) return;
-  var NS='http://www.w3.org/2000/svg';
-  function ring(cx,cy,r,seed){
-    var pts=[],n=90;
-    for(var i=0;i<n;i++){
-      var a=i/n*Math.PI*2;
-      var k=1+0.10*Math.sin(3*a+seed)+0.06*Math.sin(5*a+seed*1.7)+0.04*Math.sin(8*a+seed*.6);
-      pts.push([cx+Math.cos(a)*r*k*1.15, cy+Math.sin(a)*r*k*0.85]);
+  /* Nav: frosted once the hero top leaves the viewport */
+  var nav=document.querySelector('.gn'), hero=document.querySelector('.hero');
+  if(!nav||!hero||!('IntersectionObserver' in window)) return;
+  var sentinel=document.createElement('div');
+  sentinel.setAttribute('aria-hidden','true');
+  sentinel.style.cssText='position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none';
+  hero.style.position='relative';
+  hero.prepend(sentinel);
+  new IntersectionObserver(function(e){nav.classList.toggle('is-scrolled',!e[0].isIntersecting);},{rootMargin:'-1px 0px 0px 0px'}).observe(sentinel);
+})();
+</script>
+<script>
+(function(){
+  /* Spring reveals, staggered within each group */
+  if(!document.documentElement.classList.contains('motion')||!('IntersectionObserver' in window)) return;
+  var groups=['main h2','main .eyebrow','main .intro','.points.two > li','.research > *','.timeline > li','.twocol > div','.posts > li','.bento > li','.contact .actions'];
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{rootMargin:'0px 0px -8% 0px',threshold:.12});
+  groups.forEach(function(sel){
+    var seen=new Map();
+    document.querySelectorAll(sel).forEach(function(el){
+      var i=seen.get(el.parentNode)||0; seen.set(el.parentNode,i+1);
+      el.style.setProperty('--d',(Math.min(i,5)*.06)+'s');
+      el.classList.add('reveal'); io.observe(el);
+    });
+  });
+})();
+</script>
+<script>
+(function(){
+  /* One damped rAF loop: hero eases out, TAG24 scene plays while pinned.
+     Smooths the read scroll value only — native scrolling is never touched. */
+  if(!document.documentElement.classList.contains('motion')) return;
+  var heroInner=document.querySelector('.hero-inner');
+  var section=document.getElementById('now');
+  var track=section&&section.querySelector('.scene-track');
+  var device=section&&section.querySelector('.device');
+  var shift=section&&section.querySelector('.shift');
+  var pinMQ=window.matchMedia('(min-width:821px) and (min-height:640px)');
+  var target=window.scrollY, current=target, running=false;
+  function map(v,a,b,c,d){var t=Math.max(0,Math.min(1,(v-a)/(b-a)));return c+t*(d-c);}
+  function frame(){
+    current+=(target-current)*.12;
+    if(Math.abs(target-current)<.5) current=target;
+    var vh=window.innerHeight;
+    if(heroInner){
+      var h=heroInner.parentNode.offsetHeight, p=map(current,0,h,0,1);
+      heroInner.style.transform=p?'translateY('+(-p*80).toFixed(1)+'px) scale('+(1-p*.04).toFixed(3)+')':'';
+      heroInner.style.opacity=p?(1-p*.85).toFixed(3):'';
     }
-    var d='M'+pts[0].join(',');
-    for(var j=1;j<=n;j++){var p=pts[j%n];d+='L'+p[0].toFixed(1)+','+p[1].toFixed(1);}
-    return d+'Z';
+    if(track&&!section.classList.contains('no-device')){
+      var top=track.getBoundingClientRect().top+window.scrollY, q;
+      if(pinMQ.matches){
+        var navH=48, span=track.offsetHeight-(vh-navH);
+        q=map(current,top-navH-vh*.35,top-navH+span,0,1);
+      }else{
+        q=map(current,top-vh*.8,top+track.offsetHeight-vh*.6,0,1);
+      }
+      shift.style.setProperty('--strike',map(q,.3,.55,0,1).toFixed(3));
+      shift.style.setProperty('--to',map(q,.45,.65,.35,1).toFixed(3));
+      section.style.setProperty('--shot2',map(q,.55,.8,0,1).toFixed(3));
+      device.style.transform='translateY('+map(q,0,1,48,-24).toFixed(1)+'px) scale('+map(q,0,.4,.94,1).toFixed(3)+')';
+    }else if(shift){
+      shift.style.removeProperty('--strike');
+      shift.style.removeProperty('--to');
+    }
+    if(current!==target){requestAnimationFrame(frame);}else{running=false;}
   }
-  var peaks=[{x:470,y:330,count:13,step:24,seed:1.3},{x:250,y:470,count:6,step:20,seed:4.1}];
-  var paths=[];
-  peaks.forEach(function(pk){
-    for(var i=1;i<=pk.count;i++){
-      var p=document.createElementNS(NS,'path');
-      p.setAttribute('d',ring(pk.x,pk.y,i*pk.step,pk.seed+i*0.35));
-      if(i%5===0) p.setAttribute('class','index');
-      svg.appendChild(p); paths.push(p);
-    }
-  });
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  paths.forEach(function(p,i){
-    var L=p.getTotalLength();
-    p.style.strokeDasharray=L; p.style.strokeDashoffset=L;
-    p.animate([{strokeDashoffset:L},{strokeDashoffset:0}],{duration:1600,delay:i*45,easing:'cubic-bezier(.3,.6,.2,1)',fill:'forwards'});
-  });
+  function kick(){target=window.scrollY;if(!running){running=true;requestAnimationFrame(frame);}}
+  window.addEventListener('scroll',kick,{passive:true});
+  window.addEventListener('resize',kick);
+  running=true; requestAnimationFrame(frame);
 })();
 </script>
 <script>
@@ -337,29 +497,19 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 <script>
 (function(){
   /* Photo lightbox */
-  var avatarImg=document.querySelector('.avatar img');
+  var avatar=document.querySelector('.avatar');
   var lightbox=document.getElementById('lightbox');
-  if(!avatarImg||!lightbox) return;
+  if(!avatar||!lightbox||!lightbox.showModal) return;
   var lbImg=lightbox.querySelector('img');
-  var closeBtn=lightbox.querySelector('.lightbox-close');
-  function open(){
-    lbImg.src=avatarImg.currentSrc||avatarImg.src;
-    lightbox.hidden=false;
+  avatar.addEventListener('click',function(){
+    var img=avatar.querySelector('img'); if(!img) return;
+    lbImg.src=img.currentSrc||img.src;
+    lightbox.showModal();
     document.body.style.overflow='hidden';
-    closeBtn.focus();
-  }
-  function close(){
-    lightbox.hidden=true;
-    document.body.style.overflow='';
-    avatarImg.focus();
-  }
-  avatarImg.addEventListener('click',open);
-  avatarImg.addEventListener('keydown',function(e){
-    if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}
   });
-  closeBtn.addEventListener('click',close);
-  lightbox.addEventListener('click',function(e){if(e.target===lightbox) close();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lightbox.hidden) close();});
+  lightbox.querySelector('.lightbox-close').addEventListener('click',function(){lightbox.close();});
+  lightbox.addEventListener('click',function(e){if(e.target===lightbox) lightbox.close();});
+  lightbox.addEventListener('close',function(){document.body.style.overflow='';avatar.focus();});
 })();
 </script>
 <script>
@@ -376,6 +526,12 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
 <script>
 (function(){
   var DE={
+    "skip": "Zum Inhalt springen",
+    "nav_work": "Arbeit",
+    "nav_research": "Forschung",
+    "nav_exp": "Erfahrung",
+    "nav_writing": "Artikel",
+    "nav_contact": "Kontakt",
     "loc": "iOS Engineer in Bremen, Deutschland",
     "lede": "iOS Engineer (Senior) mit über 10 Jahren Erfahrung im Entwickeln nativer Apps in Swift und SwiftUI. Mein Hintergrund in der Mensch-Computer-Interaktion prägt, wie ich an jede Ebene der Arbeit herangehe.",
     "lede_more": "Ich habe 2013 in Kathmandu mit dem Entwickeln von iOS-Apps begonnen — damals noch mit Objective-C. Nach fast einem Jahrzehnt, in dem ich Apps für Unternehmen in Nepal und internationale Kunden gebaut habe, bin ich nach Deutschland gezogen, um Digitale Medien an der Universität Bremen zu studieren. Der Schwerpunkt lag auf Virtual Reality und Mensch-Computer-Interaktion. Diese Kombination aus realer Produkterfahrung und forschungsbasierter Ausbildung prägt meinen Ansatz: Ich interessiere mich für die Lücke zwischen dem, was Software tut, und dem, wie es sich anfühlt, sie zu benutzen.",
@@ -415,7 +571,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem}
     "hob_intro": "Was mich außerhalb der Arbeit neugierig hält.",
     "hob1b": "Fotografie",
     "hob1": "Die Fotografie hat mich gelehrt, auf Licht, Komposition und Details zu achten — Instinkte, die direkt in meine Designarbeit einfließen. Am meisten reizt mich das fotografische Erzählen: Menschen und das Leben um sie herum einzufangen gibt mir eine weitere Perspektive auf unsere Existenz. Die ästhetischeren Aufnahmen teile ich auf <a href=\"https://unsplash.com/@hempoudyal\">Unsplash</a>, frei nutzbar für alle.",
-"hob3b": "Radfahren",
+    "hob3b": "Radfahren",
     "hob3": "Für mich ist Radfahren die beste Art, eine Stadt zu erkunden, und eine der wirksamsten Methoden, hier in Bremen den Kopf freizubekommen. In den kommenden Jahren möchte ich lange Fahrradreisen quer durch Europa unternehmen.",
     "hob4b": "Sprachen",
     "hob4": "Ich mache gerade einen B2-Deutschkurs und versuche dabei, ihn auch zu genießen, mit dem Ziel, so fließend wie möglich zu werden. Als Nächstes steht ein Fantasy-Roman auf Deutsch an — hoffentlich ohne Google Translate in Reichweite.",
