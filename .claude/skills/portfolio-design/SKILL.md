@@ -17,15 +17,16 @@ Read `apple-design/references/restraint-and-antislop.md` before adding any effec
 | Area | Decision |
 |---|---|
 | Type | **System stack only** (`system-ui, -apple-system, …`) — SF Pro on Apple devices. No webfonts. |
-| Color | Apple neutrals + **one accent**: `#0071e3` (pill buttons), `--link` `#0066cc` / `#2997ff` dark. No second accent, no gradients, no glow. |
+| Color | Owner's **cool blue-grey neutrals** (light `#F2F5F7`, dark navy `#0E1821`) + **one accent**: `#0071e3` (pill buttons), `--link` `#0066cc` / `#2997ff` dark. Apple's restraint rules apply; the exact Apple greys don't. No second accent, no gradients, no glow. |
 | Theme | Light-first, follows OS dark mode via `prefers-color-scheme`; `html[data-theme]` can pin either. |
 | Surface axis | Portfolio = **"tasteful-alive"**: frosted sticky nav, damped hero scroll-out, spring reveals, **one** pinned scene (TAG24). Nothing more. |
 | Product | Real TAG24 screenshots in a CSS iPhone frame — never placeholders. |
+| Hero background | The **glacier contour lines** (generated SVG, `--contour` token, index rings in accent at .35 opacity, draw-in gated by `.motion`) are the owner's signature — keep them, keep them faint. |
 
 ## Tokens (defined on `:root`, redefined for dark twice — media query + `[data-theme="dark"]`)
 
-- Surfaces: `--bg` (#fff / #000), `--bg-alt` (#f5f5f7 / #161617), `--tile`, `--tile-alt`
-- Text: `--label` (#1d1d1f), `--label-2` (#6e6e73), `--label-3` (#86868b)
+- Surfaces: `--bg` (#F2F5F7 / #0E1821), `--bg-alt` (#E8EDF1 / #122029), `--tile` (#fff / #15222D), `--tile-alt` (#fff / #1A2936)
+- Text: `--label` (#16222E / #E4ECF1), `--label-2` (#56687A / #93A6B5), `--label-3` (#5B6D80 / #8597A6) — all ≥4.5:1 on every surface; re-check if you change any of them
 - `--sep` hairlines, `--accent`, `--link`, `--nav-bg`
 - Motion: `--spring` (smooth, `linear()` with cubic-bezier fallback), `--spring-snappy`, `--dur`
 - Always use tokens. A new hex in a rule is a bug.
@@ -34,9 +35,9 @@ Read `apple-design/references/restraint-and-antislop.md` before adding any effec
 
 | Role | Size | Weight | Tracking |
 |---|---|---|---|
-| Hero H1 (name) | `clamp(3rem, 5.6vw + 1.2rem, 5.5rem)` | 700 | -0.03em |
+| Hero H1 (name) | `clamp(2.25rem, 2vw + 1.5rem, 3.25rem)` — owner wants it modest, don't enlarge | 700 | -0.025em |
 | H2 section | `clamp(2.25rem, 2.6vw + 1.2rem, 3.5rem)` | 600 | -0.025em |
-| Tagline | `clamp(1.3rem, 1vw + 1rem, 1.75rem)` | 500 | -0.01em |
+| Tagline | `clamp(1.125rem, .6vw + 1rem, 1.375rem)` | 500 | -0.01em |
 | H3 / tile title | 1.3125rem (21px) | 600 | -0.01em |
 | Body | 17px / 1.47, fixed (never fluid) | 400 | -0.01em |
 | Eyebrow / nav | 12–14px | 600 / 400 | 0 |
